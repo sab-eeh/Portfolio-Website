@@ -1,0 +1,12 @@
+@import "tailwindcss";
+*{
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+/* 
+.hero-section{
+  background-image: url(./assets/images/image2.jpg);
+  background-position: center;
+  background-size: 1000px;
+  background-repeat: no-repeat;
+} */
