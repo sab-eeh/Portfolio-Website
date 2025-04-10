@@ -4,10 +4,10 @@ import { FaGithub } from "react-icons/fa6";
 import { BiLogoGmail } from "react-icons/bi";
 import { IoMdContact } from "react-icons/io";
 
-const Home = () => {
+const Hero = () => {
   return (
     <>
-      <div className="hero-section lg:h-[90vh] w-full text-white text-center flex items-center justify-center px-20">
+      <div className="lg:h-[100vh] w-full text-white text-center flex items-center justify-center px-20">
         <div className="px-50 space-y-4">
           <h1 className="font-bold lg:text-3xl"><span className="">Hello,</span> I'm Sabeeh Uddin</h1>
           <h1 className="font-extrabold lg:text-6xl "><span className="bg-gradient-to-r from-purple-600 to-purple-400 text-transparent bg-clip-text">Full Stack Developer</span></h1>
@@ -21,9 +21,10 @@ const Home = () => {
             <button className="flex items-center gap-1 font-semibold px-6 py-2 bg-purple-600 rounded-xl cursor-pointer">
               <IoMdContact className="lg:text-lg" /> <p>Contact</p>
             </button>
-            <FaLinkedin className="lg:text-2xl cursor-pointer" />
-            <FaGithub className="lg:text-2xl cursor-pointer" />
-            <BiLogoGmail className="lg:text-2xl cursor-pointer" />
+            <a href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/" target="blank"><FaLinkedin className="lg:text-2xl cursor-pointer" /></a>
+            <a href="https://github.com/sab-eeh" target="blank"><FaGithub className="lg:text-2xl cursor-pointer" /></a>
+            <a href=""><BiLogoGmail className="lg:text-2xl cursor-pointer" /></a>
+            
           </div>
         </div>
       </div>
@@ -31,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hero;
