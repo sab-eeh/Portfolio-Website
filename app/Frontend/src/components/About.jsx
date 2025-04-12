@@ -14,7 +14,7 @@ const About = () => {
         </h1>
       </div>
 
-      <div className="pt-8 max-w-4xl mx-auto lg:mx-0">
+      <div className="pt-8 mx-auto lg:mx-0">
         <p className="text-base sm:text-lg leading-relaxed text-center lg:text-left">
           I'm Sabeeh Uddin, a dedicated{" "}
           <span className="text-purple-400">Web developer</span> currently
