@@ -39,7 +39,7 @@ const Skills = () => {
           {Icons.map((skill, index) => (
             <div
               key={index}
-              className="w-30 border-1 border-gray-800 rounded-lg backdrop-blur-2xl bg-[#1a153557] lg:py-6 flex flex-col items-center space-y-2 text-center"
+              className="w-30 border-1 border-gray-800 rounded-lg backdrop-blur-2xl bg-[#1a153557] lg:py-6 flex flex-col items-center space-y-2 text-center cursor-pointer hover:bg-[#1a1535d2] hover:border-gray-600"
             >
               {skill.icon}
               <span className="text-purple-200 text-md font-medium">{skill.name}</span>

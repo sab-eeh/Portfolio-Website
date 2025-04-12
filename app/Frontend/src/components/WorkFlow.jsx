@@ -36,7 +36,7 @@ const processSteps = [
 const WorkFlow = () => {
   return (
     <>
-      <div className="lg:px-20 lg:py-10">
+      <div className="lg:px-20 lg:py-15">
         <div className="text-center lg:space-y-4 lg:px-30 lg:py-20">
           <h1 className="font-extrabold lg:text-6xl">
             <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">

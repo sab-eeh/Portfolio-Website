@@ -3,6 +3,19 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+input{
+  background-color: rgb(8, 8, 8);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 14px;
+}
+textarea{
+  background-color: rgb(8, 8, 8);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 14px;
+  resize: none;
+}
 html{
   scroll-behavior: smooth;
 }
@@ -20,4 +33,5 @@ html{
   background: #9810facc; 
   cursor: pointer;
 }
+
 

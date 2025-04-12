@@ -9,7 +9,7 @@ import Contact from "./Contact";
 const Home = () => {
   return (
     <main className="scroll-smooth pt-12">
-      <section id="hero">
+      <section id="home">
         <Hero />
       </section>
       <section id="about" >
