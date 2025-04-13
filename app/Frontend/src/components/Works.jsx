@@ -33,7 +33,9 @@ const projects = [
 
 const Works = () => {
   return (
-    <div className="px-6 py-20 lg:px-20 text-white">
+    <div className="relative px-6 py-20 lg:px-15 text-white backdrop-blur-xl bg-white/5 shadow-lg">
+      <div className="absolute w-[200px] h-[200px] bg-purple-700/40 blur-[100px] rounded-full -z-10 top-10 left-20"></div>
+      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 -bottom-50 right-100"></div>
       <div className="text-center space-y-4 mb-12">
         <h1 className="font-extrabold text-4xl lg:text-6xl">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
@@ -49,10 +51,14 @@ const Works = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border border-gray-800 rounded-2xl backdrop-blur-2xl bg-[#1a153557] hover:bg-[#1a153577] transition-all duration-300 p-6 space-y-5"
+            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border border-gray-800 rounded-2xl backdrop-blur-xl shadow-lg  hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
           >
             <div>
-            <img src={project.img} alt="project image" className="rounded-xl object-cover w-full " />
+              <img
+                src={project.img}
+                alt="project image"
+                className="rounded-xl object-cover w-full "
+              />
             </div>
             <h2 className="text-2xl font-bold text-purple-400">
               {project.title}

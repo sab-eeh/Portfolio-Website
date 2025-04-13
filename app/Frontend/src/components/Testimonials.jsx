@@ -30,7 +30,8 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="text-white px-4 lg:px-20 py-20 space-y-12">
+    <div className="relative text-white px-4 lg:px-20 py-20 space-y-12 backdrop-blur-xl bg-white/5 shadow-lg">
+      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[150px] rounded-full -z-10 top-20 right-100"></div>
       {/* Header */}
       <div className="space-y-4 max-w-3xl  mx-auto text-center ">
         <h1 className="font-extrabold text-4xl lg:text-6xl">
@@ -50,7 +51,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="w-full md:w-[45%] lg:w-[30%] border border-gray-800 rounded-lg backdrop-blur-2xl bg-[#1a153557] p-6 flex flex-col space-y-6 hover:bg-[#1a153577] hover:border-gray-600 transition-all duration-200 cursor-pointer"
+            className="w-full md:w-[45%] lg:w-[30%] border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 hover:bg-[#1a153577] hover:border-gray-600 transition-all duration-200 cursor-pointer"
           >
             <h2 className="text-xl font-semibold">{testimonial.company}</h2>
 

@@ -4,17 +4,19 @@ import { FaPhone, FaLinkedin, FaGithub } from "react-icons/fa6";
 
 const Contact = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-10 px-6 py-20 text-white">
+    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 lg:px-15 py-20 text-white backdrop-blur-xl bg-white/5 shadow-lg">
+      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-50 right-100"></div>
       {/* Contact Form Section */}
-      <div className="border border-gray-800 rounded-lg backdrop-blur-2xl bg-[#1a153557] w-full lg:max-w-[60%] p-6 lg:p-10 space-y-6">
-        <h1 className="font-extrabold text-4xl lg:text-6xl text-center lg:text-left">
+      <div className="border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 lg:p-10 space-y-6">
+        <h1 className="font-bold text-4xl lg:text-6xl text-center lg:text-left">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
             Let's Work Together
           </span>
         </h1>
         <p className="text-lg text-center lg:text-left">
-          Have a project in mind or just want to say hi? I’d love to hear from you.
-          Feel free to reach out and let’s build something amazing together.
+          Have a project in mind or just want to say hi? I’d love to hear from
+          you. Feel free to reach out and let’s build something amazing
+          together.
         </p>
 
         <form className="space-y-6">
@@ -66,7 +68,9 @@ const Contact = () => {
           <BiLogoGmail className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
           <div>
             <p>Email</p>
-            <p className="text-purple-500 cursor-pointer">usabeeh72@gmail.com</p>
+            <p className="text-purple-500 cursor-pointer">
+              usabeeh72@gmail.com
+            </p>
           </div>
         </div>
 
@@ -99,7 +103,11 @@ const Contact = () => {
         </div>
 
         <div className="flex items-center gap-5">
-          <a href="https://github.com/sab-eeh" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/sab-eeh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           </a>
           <div>

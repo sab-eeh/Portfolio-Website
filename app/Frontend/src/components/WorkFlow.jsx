@@ -35,7 +35,9 @@ const processSteps = [
 
 const WorkFlow = () => {
   return (
-    <div className="text-white px-4 lg:px-20 py-16 space-y-12">
+    <div className="relative text-white px-4 lg:px-25 py-16 space-y-12 backdrop-blur-xl bg-white/5 shadow-lg">
+      <div className="absolute w-[200px] h-[200px] bg-purple-600/30 blur-[130px] rounded-full -z-10 bottom-30 left-10"></div>
+
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl lg:text-6xl font-extrabold">
@@ -54,7 +56,7 @@ const WorkFlow = () => {
         {processSteps.map((step, index) => (
           <div
             key={index}
-            className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 px-6 py-6 rounded-md border border-gray-700 text-white hover:bg-purple-700 transition-all duration-200"
+            className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 px-6 py-6 rounded-md backdrop-blur-xl shadow-lg border border-gray-700 text-white hover:bg-purple-700 transition-all duration-200"
           >
             {/* Index + Title */}
             <div className="flex items-center gap-4 w-full lg:w-1/2">

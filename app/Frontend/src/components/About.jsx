@@ -2,7 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="text-white px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-14 lg:py-20">
+    <div className="relative text-white px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-14 lg:py-20 backdrop-blur-xl bg-white/5 shadow-lg ">
+      <div className="absolute w-[300px] h-[300px] bg-purple-700/20 blur-[140px] rounded-full -z-10 left-150"></div>
+
       <div className="space-y-4 text-center lg:text-left">
         <h1 className="text-purple-200 font-medium text-lg sm:text-xl md:text-2xl">
           INTRODUCTION

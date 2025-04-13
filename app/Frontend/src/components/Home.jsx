@@ -9,7 +9,7 @@ import Works from "./Works";
 
 const Home = () => {
   return (
-    <main className="scroll-smooth pt-12">
+    <main className="scroll-smooth ">
       <section id="home">
         <Hero />
       </section>
