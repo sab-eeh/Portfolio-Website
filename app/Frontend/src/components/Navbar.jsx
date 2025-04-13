@@ -21,7 +21,9 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 bg-gray-950 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 backdrop-blur-2xl">
-        <div className="text-purple-300 font-bold text-xl">Sabeeh Dev</div>
+        <div className="text-purple-300 font-bold text-2xl">
+          <NavLink to="/home" style={{fontFamily: "Poetsen One",}}>Sabeeh.Dev</NavLink>
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">

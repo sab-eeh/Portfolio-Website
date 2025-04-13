@@ -63,7 +63,7 @@ const Contact = () => {
       {/* Contact Info Section */}
       <div className="w-full lg:w-1/3 space-y-6 mt-10 lg:mt-0">
         <div className="flex items-center gap-5">
-          <BiLogoGmail className="text-4xl text-purple-500 bg-white p-2 rounded-3xl cursor-pointer hover:text-purple-700" />
+          <BiLogoGmail className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
           <div>
             <p>Email</p>
             <p className="text-purple-500 cursor-pointer">usabeeh72@gmail.com</p>
@@ -71,7 +71,7 @@ const Contact = () => {
         </div>
 
         <div className="flex items-center gap-5">
-          <FaPhone className="text-4xl text-purple-500 bg-white p-2 rounded-3xl cursor-pointer hover:text-purple-700" />
+          <FaPhone className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
           <div>
             <p>Phone Number</p>
             <p className="text-purple-500 cursor-pointer">+92 331 290 4878</p>
@@ -84,7 +84,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin className="text-4xl text-purple-500 bg-white p-2 rounded-3xl cursor-pointer hover:text-purple-700" />
+            <FaLinkedin className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
           </a>
           <div>
             <a
@@ -100,7 +100,7 @@ const Contact = () => {
 
         <div className="flex items-center gap-5">
           <a href="https://github.com/sab-eeh" target="_blank" rel="noopener noreferrer">
-            <FaGithub className="text-4xl text-purple-500 bg-white p-2 rounded-3xl cursor-pointer hover:text-purple-700" />
+            <FaGithub className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           </a>
           <div>
             <a

@@ -14,7 +14,7 @@ const Hero = () => {
         </h1>
 
         <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight">
-          <span className="bg-gradient-to-r from-purple-600 to-purple-400 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-purple-700 to-purple-400 text-transparent bg-clip-text">
             Full Stack Developer
           </span>
         </h1>
@@ -28,34 +28,35 @@ const Hero = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 pt-4">
           <Link to="/contact">
-            <button className="flex items-center gap-2 font-semibold px-6 py-2 bg-purple-600 rounded-xl cursor-pointer hover:bg-purple-700 hover:border-1 hover:border-purple-300">
+            <button className="flex items-center gap-2 font-semibold px-6 py-2 border-1 border-purple-600 rounded-xl cursor-pointer hover:bg-purple-600 hover:border-1 hover:border-purple-300">
               <IoMdContact className="text-lg md:text-xl" />
               <p>Contact</p>
             </button>
           </Link>
-
-          <a
-            className="hover:text-purple-300"
-            href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className="text-xl md:text-2xl cursor-pointer" />
-          </a>
-          <a
-            className="hover:text-purple-300"
-            href="https://github.com/sab-eeh"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="text-xl md:text-2xl cursor-pointer" />
-          </a>
-          <a
-            className="hover:text-purple-300"
-            href="mailto:sabeehuddin.dev@gmail.com"
-          >
-            <BiLogoGmail className="text-xl md:text-2xl cursor-pointer" />
-          </a>
+          <div className="flex gap-2">
+            <a
+              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
+              href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-lg md:text-2xl cursor-pointer" />
+            </a>
+            <a
+              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
+              href="https://github.com/sab-eeh"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="text-xl md:text-2xl cursor-pointer" />
+            </a>
+            <a
+              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
+              href="mailto:sabeehuddin.dev@gmail.com"
+            >
+              <BiLogoGmail className="text-xl md:text-2xl cursor-pointer" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
