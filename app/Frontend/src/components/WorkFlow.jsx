@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const processSteps = [
   {
@@ -33,13 +34,33 @@ const processSteps = [
   },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 const WorkFlow = () => {
   return (
     <div className="relative text-white px-4 lg:px-25 py-16 space-y-12 backdrop-blur-xl bg-white/5 shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-purple-600/30 blur-[130px] rounded-full -z-10 bottom-30 left-10"></div>
 
       {/* Header */}
-      <div className="text-center space-y-4">
+      <motion.div
+        className="text-center space-y-4"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeUp}
+      >
         <h1 className="text-4xl lg:text-6xl font-extrabold">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
             DEVELOPMENT WORKFLOW
@@ -49,13 +70,20 @@ const WorkFlow = () => {
           Here’s how I take your idea and turn it into a fully functional,
           professional website:
         </p>
-      </div>
+      </motion.div>
 
       {/* Steps */}
-      <div className="flex flex-col gap-6">
+      <motion.div
+        className="flex flex-col gap-6"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {processSteps.map((step, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={fadeUp}
             className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 px-6 py-6 rounded-md backdrop-blur-xl shadow-lg border border-gray-700 text-white hover:bg-purple-700 transition-all duration-200"
           >
             {/* Index + Title */}
@@ -70,9 +98,9 @@ const WorkFlow = () => {
             <div className="w-full lg:w-1/2 text-sm lg:text-base text-gray-200">
               {step.content}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

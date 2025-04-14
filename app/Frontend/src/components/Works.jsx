@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 import image1 from "../assets/images/spotify ui.png";
 import image2 from "../assets/images/news web.png";
 import image3 from "../assets/images/inotebook.jpg";
@@ -31,12 +32,34 @@ const projects = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 const Works = () => {
   return (
     <div className="relative px-6 py-20 lg:px-15 text-white backdrop-blur-xl bg-white/5 shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-purple-700/40 blur-[100px] rounded-full -z-10 top-10 left-20"></div>
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 -bottom-50 right-100"></div>
-      <div className="text-center space-y-4 mb-12">
+
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+        className="text-center space-y-4 mb-12"
+      >
         <h1 className="font-extrabold text-4xl lg:text-6xl">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
             My Work
@@ -45,19 +68,27 @@ const Works = () => {
         <p className="text-lg text-gray-300">
           A glimpse into some of the projects I’ve built recently.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col lg:flex-row flex-wrap justify-center lg:items-stretch gap-8 items-center">
+      {/* Project Cards */}
+      <motion.div
+        className="flex flex-col lg:flex-row flex-wrap justify-center lg:items-stretch gap-8 items-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border border-gray-800 rounded-2xl backdrop-blur-xl shadow-lg  hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
+            variants={cardVariants}
+            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border border-gray-800 rounded-2xl backdrop-blur-xl shadow-lg hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
           >
             <div>
               <img
                 src={project.img}
                 alt="project image"
-                className="rounded-xl object-cover w-full "
+                className="rounded-xl object-cover w-full"
               />
             </div>
             <h2 className="text-2xl font-bold text-purple-400">
@@ -85,9 +116,9 @@ const Works = () => {
               <FaGithub className="text-lg" />
               View Project
             </a>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
