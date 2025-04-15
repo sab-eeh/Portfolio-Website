@@ -1,14 +1,31 @@
 import React from "react";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaPhone, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
 
 const Contact = () => {
   return (
-    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 lg:px-15 py-20 text-white backdrop-blur-xl bg-white/5 shadow-lg">
+    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-16 py-20 text-white backdrop-blur-xl bg-white/5 shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-50 right-100"></div>
+
       {/* Contact Form Section */}
-      <div className="border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 lg:p-10 space-y-6">
-        <h1 className="font-bold text-4xl lg:text-6xl text-center lg:text-left">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 sm:p-8 lg:p-10 space-y-6"
+      >
+        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl text-center lg:text-left">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
             Let's Work Together
           </span>
@@ -48,8 +65,6 @@ const Contact = () => {
 
           <textarea
             className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
-            id="message"
-            name="message"
             rows="6"
             placeholder="Write your message here . . ."
           ></textarea>
@@ -60,12 +75,18 @@ const Contact = () => {
             value="Send Message"
           />
         </form>
-      </div>
+      </motion.div>
 
       {/* Contact Info Section */}
-      <div className="w-full lg:w-1/3 space-y-6 mt-10 lg:mt-0">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="w-full lg:w-1/3 space-y-6 mt-10 lg:mt-0 flex flex-col items-start lg:items-start text-start lg:text-left"
+      >
         <div className="flex items-center gap-5">
-          <BiLogoGmail className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
+          <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           <div>
             <p>Email</p>
             <p className="text-purple-500 cursor-pointer">
@@ -75,7 +96,7 @@ const Contact = () => {
         </div>
 
         <div className="flex items-center gap-5">
-          <FaPhone className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
+          <FaPhone className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           <div>
             <p>Phone Number</p>
             <p className="text-purple-500 cursor-pointer">+92 331 290 4878</p>
@@ -88,7 +109,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600 " />
+            <FaLinkedin className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           </a>
           <div>
             <a
@@ -108,7 +129,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub className="text-4xl text-white border-1 border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
+            <FaGithub className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           </a>
           <div>
             <a
@@ -121,7 +142,7 @@ const Contact = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
