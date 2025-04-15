@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaPhone, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { motion } from "framer-motion";
@@ -13,6 +13,46 @@ const fadeUp = {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:3000/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ fullname: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send message. Try again later.");
+        console.error(data.error);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("Something went wrong!");
+    }
+  };
+
   return (
     <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-16 py-20 text-white backdrop-blur-xl bg-white/5 shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-50 right-100"></div>
@@ -32,41 +72,36 @@ const Contact = () => {
         </h1>
         <p className="text-lg text-center lg:text-left">
           Have a project in mind or just want to say hi? I’d love to hear from
-          you. Feel free to reach out and let’s build something amazing
-          together.
+          you.
         </p>
 
-        <form className="space-y-6">
-          <div className="flex flex-col md:flex-row gap-4">
-            <input
-              className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
-              type="text"
-              placeholder="First Name"
-            />
-            <input
-              className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
-              type="text"
-              placeholder="Last Name"
-            />
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4">
-            <input
-              className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
-              type="email"
-              placeholder="Email"
-            />
-            <input
-              className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
-              type="tel"
-              placeholder="Phone Number"
-            />
-          </div>
-
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <input
+            className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
+            type="text"
+            name="fullname"
+            placeholder="Full Name"
+            value={formData.fullname}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
           <textarea
             className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
             rows="6"
+            name="message"
             placeholder="Write your message here . . ."
+            value={formData.message}
+            onChange={handleChange}
+            required
           ></textarea>
 
           <input
@@ -74,6 +109,10 @@ const Contact = () => {
             type="submit"
             value="Send Message"
           />
+
+          {status && (
+            <p className="text-center pt-2 text-sm text-purple-400">{status}</p>
+          )}
         </form>
       </motion.div>
 
