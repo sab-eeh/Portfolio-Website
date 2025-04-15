@@ -4,27 +4,28 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
   {
-    company: "Stable Cafe",
+    company: "SkyWebDesign Agency",
     review:
-      "Sabeeh completely revamped our website with a clean, modern look that truly represents our cafe. His attention to detail and smooth communication made the whole process easy and enjoyable.",
-    name: "John Doe",
+      "Sabeeh created an exceptional website for our agency, capturing our brand essence perfectly. His expertise in design and development ensured a seamless experience from concept to launch.",
+    name: "Luspex",
     designation: "Owner",
   },
   {
-    company: "Babka Bakers",
+    company: "Yash",
     review:
-      "Sabeeh brought our vision to life with a website that’s not only beautiful but functional. We've seen a noticeable increase in orders since launching the new site.",
-    name: "Jane Smith",
-    designation: "Head Baker",
+      "Sabeeh brilliantly translated our Figma design into a stunning, functional website. His attention to detail and technical proficiency exceeded our expectations, delivering a site that stands out.",
+    name: "Yash",
+    designation: "Client",
   },
   {
-    company: "Vuji Cafe",
+    company: "Wajeeh",
     review:
-      "From start to finish, Sabeeh was a true professional. He delivered exactly what we needed—a fast, user-friendly site that reflects our brand perfectly.",
-    name: "Mark Johnson",
-    designation: "CEO",
+      "Working with Sabeeh was a delight. He not only met but exceeded our expectations with his professionalism and creativity. Our new website has received rave reviews!",
+    name: "Wajeeh",
+    designation: "Client",
   },
 ];
+
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },

@@ -102,7 +102,7 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              href="mailto:sabeehuddin.dev@gmail.com"
+              href="mailto:usabeeh72@gmail.com"
               className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
             >
               <BiLogoGmail className="text-xl md:text-2xl cursor-pointer" />

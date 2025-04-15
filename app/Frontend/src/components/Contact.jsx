@@ -128,9 +128,7 @@ const Contact = () => {
           <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           <div>
             <p>Email</p>
-            <p className="text-purple-500 cursor-pointer">
-              usabeeh72@gmail.com
-            </p>
+           <a className="text-purple-500 cursor-pointer" href="mailto:usabeeh72@gmail.com">usabeeh72@gmail.com</a>
           </div>
         </div>
 

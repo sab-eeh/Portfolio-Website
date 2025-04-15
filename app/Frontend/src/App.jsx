@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Footer from "./components/Footer";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<Home />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };
