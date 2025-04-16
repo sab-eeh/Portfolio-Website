@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 backdrop-blur-xl bg-white/5 shadow-lg">
+      <header className="fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 backdrop-blur-xl bg-white/5 shadow-lg ">
         <div className="text-purple-300 font-bold text-2xl">
           <NavLink to="/home" style={{ fontFamily: "Poetsen One" }}>
             Sabeeh.Dev

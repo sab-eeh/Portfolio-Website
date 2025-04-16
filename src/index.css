@@ -3,6 +3,9 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+html , body{
+  overflow-x: hidden;
+}
 input{
   background-color: rgb(8, 8, 8);
   border: none;
