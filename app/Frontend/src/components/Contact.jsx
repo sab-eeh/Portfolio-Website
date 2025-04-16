@@ -30,7 +30,7 @@ const Contact = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:3000/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,12 @@ const Contact = () => {
           <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
           <div>
             <p>Email</p>
-           <a className="text-purple-500 cursor-pointer" href="mailto:usabeeh72@gmail.com">usabeeh72@gmail.com</a>
+            <a
+              className="text-purple-500 cursor-pointer"
+              href="mailto:usabeeh72@gmail.com"
+            >
+              usabeeh72@gmail.com
+            </a>
           </div>
         </div>
 
