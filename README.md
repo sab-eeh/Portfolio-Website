@@ -1,44 +1,12 @@
-# 🌐 Sabeeh Uddin's Portfolio Website
+# React + Vite
 
-Welcome to my personal portfolio website — a modern, fully responsive web app that showcases who I am, what I do, and the work I’m proud of. Built using the **MERN stack**, styled with **Tailwind CSS**, enhanced by **Framer Motion** for scroll-triggered animations, and designed with **Glassmorphism** for a clean, frosted-glass aesthetic.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🚀 Tech Stack
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- ⚛️ **Frontend**: React.js, Tailwind CSS, Framer Motion  
-- 🧠 **Backend**: Node.js, Express.js  
-- 🗄️ **Database**: MongoDB with Mongoose  
-- 💌 **Contact (SMTP)**: Integrated email functionality using EmailJS / Nodemailer (SMTP) for sending messages directly from the contact form  
-- ✨ **Design**: Glassmorphism UI for a modern and elegant look
+## Expanding the ESLint configuration
 
----
-
-## 🎯 Features
-
-- 🧑‍💼 **About Me** — Brief intro, skills, and background  
-- 🧰 **Projects** — Highlighting key personal and freelance projects with tech stack info  
-- 📬 **Contact Form** — Send direct messages via email using SMTP integration  
-- 📱 **Responsive Layout** — Fully optimized for mobile, tablet, and desktop  
-- 🎞️ **Smooth Animations** — Framer Motion-powered animations for sections and components  
-- 🌈 **Glassmorphism UI** — Clean and immersive frosted-glass visuals
-
----
-
-## 🔗 Live Website
-
-👉 [**sabeehworks.online**](https://sabeehworks.online)
-
----
-
-## 📫 Contact
-
-Feel free to connect with me:
-
-- 📧 Email: [usabeeh72@gmail.com](mailto:usabeeh72@gmail.com)  
-- 🌍 Website: [sabeehworks.online](https://sabeehworks.online)  
-- 💻 GitHub: [github.com/sab-eeh](https://github.com/sab-eeh) <!-- replace with actual username -->
-
----
-
-> Designed & Developed by **Sabeeh Uddin** ✨
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
