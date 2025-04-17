@@ -1,3 +1,4 @@
+// /api/email.js
 import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
