@@ -20,14 +20,26 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setLoading(true);
+    setStatus("");
+
+    const { fullname, email, message } = formData;
+
+    // Basic input validation
+    if (!fullname || !email || !message) {
+      setStatus("Please fill in all fields.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -35,21 +47,30 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ fullname, email, message }),
       });
 
-      const data = await response.json();
+      let data = {};
 
-      if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ fullname: "", email: "", message: "" });
-      } else {
-        setStatus("Failed to send message. Try again later.");
-        console.error(data.error);
+      try {
+        data = await response.json(); // Safely parse JSON
+      } catch (jsonError) {
+        console.error("Failed to parse JSON:", jsonError);
+        throw new Error("Invalid server response. Please try again later.");
       }
+
+      if (!response.ok) {
+        console.error("Server responded with error:", data?.error || "Unknown error");
+        throw new Error(data?.error || "Failed to send message.");
+      }
+
+      setStatus("✅ Message sent successfully!");
+      setFormData({ fullname: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error:", error);
-      setStatus("Something went wrong!");
+      console.error("Submission error:", error);
+      setStatus("❌ " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,8 +92,7 @@ const Contact = () => {
           </span>
         </h1>
         <p className="text-lg text-center lg:text-left">
-          Have a project in mind or just want to say hi? I’d love to hear from
-          you.
+          Have a project in mind or just want to say hi? I’d love to hear from you.
         </p>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -107,7 +127,8 @@ const Contact = () => {
           <input
             className="w-full p-3 rounded-md bg-gradient-to-r from-purple-800 to-purple-400 text-white font-semibold cursor-pointer hover:from-purple-700 hover:to-purple-500 transition-all"
             type="submit"
-            value="Send Message"
+            value={loading ? "Sending..." : "Send Message"}
+            disabled={loading}
           />
 
           {status && (
@@ -125,11 +146,11 @@ const Contact = () => {
         className="w-full lg:w-1/3 space-y-6 mt-10 lg:mt-0 flex flex-col items-start lg:items-start text-start lg:text-left"
       >
         <div className="flex items-center gap-5">
-          <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
+          <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl" />
           <div>
             <p>Email</p>
             <a
-              className="text-purple-500 cursor-pointer"
+              className="text-purple-500 hover:underline"
               href="mailto:usabeeh72@gmail.com"
             >
               usabeeh72@gmail.com
@@ -138,10 +159,10 @@ const Contact = () => {
         </div>
 
         <div className="flex items-center gap-5">
-          <FaPhone className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
+          <FaPhone className="text-4xl text-white border border-purple-500 p-2 rounded-3xl" />
           <div>
             <p>Phone Number</p>
-            <p className="text-purple-500 cursor-pointer">+92 331 290 4878</p>
+            <p className="text-purple-500">+92 331 290 4878</p>
           </div>
         </div>
 
@@ -151,7 +172,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
+            <FaLinkedin className="text-4xl text-white border border-purple-500 p-2 rounded-3xl hover:bg-purple-600" />
           </a>
           <div>
             <a
@@ -171,7 +192,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub className="text-4xl text-white border border-purple-500 p-2 rounded-3xl cursor-pointer hover:bg-purple-600" />
+            <FaGithub className="text-4xl text-white border border-purple-500 p-2 rounded-3xl hover:bg-purple-600" />
           </a>
           <div>
             <a
