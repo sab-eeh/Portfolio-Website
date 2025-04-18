@@ -11,9 +11,6 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build"
-    },
-    {
-      "framework": "vite"
     }
   ],
   "routes": [
@@ -26,5 +23,4 @@
       "dest": "/dist/index.html"
     }
   ]
-  
 }
