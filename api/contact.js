@@ -1,4 +1,7 @@
 // /api/contact.js
+export const config = {
+  runtime: "nodejs",
+};
 import { connectToDatabase, FormModel } from "./db.js";
 import { transporter } from "./email.js";
 
@@ -38,11 +41,10 @@ export default async function handler(req, res) {
     return res.status(201).json({ message: "Submitted successfully!" });
   } catch (error) {
     console.error("API Error:", error);
-  
+
     return res.status(500).json({
       error: "Server error. Please try again later.",
       details: error.message,
     });
   }
-  
 }
