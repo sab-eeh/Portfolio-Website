@@ -21,9 +21,11 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 backdrop-blur-xl bg-white/5 shadow-lg ">
-        <div className="text-purple-300 font-bold text-2xl">
-          <NavLink to="/home" style={{ fontFamily: "Poetsen One" }}>
-            Sabeeh.Dev
+        <div>
+          <NavLink to="/home">
+            <h1 className="text-purple-300 font-extrabold text-2xl">
+              Sabeeh.Dev
+            </h1>
           </NavLink>
         </div>
 
@@ -42,9 +44,7 @@ const Navbar = () => {
                 <NavLink
                   to={link.to}
                   className={({ isActive }) =>
-                    `hover:text-purple-400 ${
-                      isActive ? "text-purple-400" : ""
-                    }`
+                    `hover:text-purple-400 ${isActive ? "text-purple-400" : ""}`
                   }
                 >
                   {link.label}
@@ -69,7 +69,11 @@ const Navbar = () => {
         <div className="fixed inset-0 z-50 bg-[#0a0a23] px-6 py-4 overflow-y-auto">
           <div className="flex justify-between items-center">
             <div className="text-purple-300 font-bold text-2xl">
-              <NavLink to="/home" onClick={toggleMenu} style={{ fontFamily: "Poetsen One" }}>
+              <NavLink
+                to="/home"
+                onClick={toggleMenu}
+                style={{ fontFamily: "Poetsen One" }}
+              >
                 Sabeeh.Dev
               </NavLink>
             </div>
@@ -85,9 +89,7 @@ const Navbar = () => {
                   onClick={toggleMenu}
                   to={link.to}
                   className={({ isActive }) =>
-                    `hover:text-purple-400 ${
-                      isActive ? "text-purple-400" : ""
-                    }`
+                    `hover:text-purple-400 ${isActive ? "text-purple-400" : ""}`
                   }
                 >
                   {link.label}

@@ -10,8 +10,8 @@ const Hero = () => {
   return (
     <div className="relative w-full text-white text-center flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-16 md:py-24 lg:py-0 lg:h-[100vh] backdrop-blur-xl bg-white/5 shadow-lg">
       {/* Background blobs */}
-      <div className="absolute w-[200px] h-[200px] bg-purple-700/40 blur-[130px] rounded-full -z-10 top-0 left-20"></div>
-      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-30 right-20"></div>
+      <div className="absolute w-[200px] h-[200px] bg-purple-700/40 blur-[120px] rounded-full -z-10 top-0 left-20"></div>
+      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[120px] rounded-full -z-10 bottom-30 right-20"></div>
 
       <div className="max-w-5xl w-full space-y-6">
         <motion.h1

@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       from: process.env.SMTP_EMAIL,
       to: email,
       subject: "Thanks for contacting me!",
-      text: `Hi ${fullname},\n\nThanks for reaching out! I'll get back to you soon.\n\nThank You,\nSabeeh Uddin"`,
+      text: `Hi ${fullname},\n\nThanks for reaching out! I'll get back to you soon.\n\nThank You,\nSabeeh Uddin`,
     });
 
     // Send email to admin
