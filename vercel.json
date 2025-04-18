@@ -1,11 +1,26 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/contact.js", "use": "@vercel/node" },
-    { "src": "package.json", "use": "@vercel/static-build" }
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs18.x"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1.js" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.html"
+    }
   ]
 }

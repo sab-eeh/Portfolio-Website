@@ -1,7 +1,4 @@
 // /api/contact.js
-export const config = {
-  runtime: "nodejs",
-};
 import { connectToDatabase, FormModel } from "./db.js";
 import { transporter } from "./email.js";
 
