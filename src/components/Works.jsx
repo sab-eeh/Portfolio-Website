@@ -12,7 +12,7 @@ const projects = [
     description:
       "A beautiful front-end replica of Spotify's interface built with modern UI principles and smooth transitions. It offers an immersive design experience using clean layout and dark mode aesthetics.",
     tech: ["React.js", "TailwindCSS", "Framer Motion"],
-    github: "https://github.com/sab-eeh/React-Spotify-Clone",
+    github: "https://github.com/sab-eeh/Spotify-Clone",
   },
   {
     img: image3,

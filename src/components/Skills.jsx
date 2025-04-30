@@ -3,15 +3,19 @@ import { FaHtml5, FaWordpress } from "react-icons/fa";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io";
 import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa6";
 import { SiExpress, SiMongodb, SiMysql } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
+import { RiNextjsFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 
 const Icons = [
   { icon: <FaHtml5 size={40} />, name: "HTML5" },
   { icon: <IoLogoCss3 size={40} />, name: "CSS3" },
   { icon: <IoLogoJavascript size={40} />, name: "JavaScript" },
+  { icon: <BiLogoTypescript size={40} />, name: "TypeScript" },
   { icon: <FaReact size={40} />, name: "React" },
   { icon: <FaNodeJs size={40} />, name: "Node.js" },
   { icon: <SiExpress size={40} />, name: "Express.js" },
+  { icon: <RiNextjsFill size={40} />, name: "Next.js" },
   { icon: <SiMongodb size={40} />, name: "MongoDB" },
   { icon: <SiMysql size={40} />, name: "MySQL" },
   { icon: <FaWordpress size={40} />, name: "WordPress" },
