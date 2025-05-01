@@ -1,9 +1,15 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -23,14 +29,17 @@ const ScrollToSection = () => {
 
 const App = () => {
   return (
-    <Router>
-      <ScrollToSection />
-      <Navbar />
-      <Routes>
-        <Route path="/*" element={<Home />} />
-      </Routes>
-      <Footer/>
-    </Router>
+    <>
+    <Analytics/>
+      <Router>
+        <ScrollToSection />
+        <Navbar />
+        <Routes>
+          <Route path="/*" element={<Home />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
