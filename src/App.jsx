@@ -10,6 +10,7 @@ import {
 import { useEffect } from "react";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
   return (
     <>
     <Analytics/>
+    <SpeedInsights/>
       <Router>
         <ScrollToSection />
         <Navbar />
