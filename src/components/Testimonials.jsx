@@ -42,7 +42,7 @@ const cardVariants = {
 
 const Testimonials = () => {
   return (
-    <div className="relative text-white px-4 lg:px-20 py-20 space-y-12 backdrop-blur-xl bg-white/5 shadow-lg">
+    <div className="relative text-white px-4 lg:px-20 py-20 space-y-12 backdrop-blur-xl bg-black/80  shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[150px] rounded-full -z-10 top-20 right-100"></div>
 
       {/* Header */}
@@ -63,7 +63,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="w-full md:w-[45%] lg:w-[30%] border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 hover:bg-[#1a153577] hover:border-gray-600 transition-all duration-200 cursor-pointer"
+            className="w-full md:w-[45%] lg:w-[30%] border bg-white/5 border-gray-800 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 hover:bg-[#1a153577] hover:border-gray-600 transition-all duration-200 cursor-pointer"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"

@@ -48,7 +48,7 @@ const cardVariants = {
 
 const Works = () => {
   return (
-    <div className="relative px-6 py-20 lg:px-15 text-white backdrop-blur-xl bg-white/5 shadow-lg">
+    <div className="relative px-6 py-20 lg:px-15 text-white backdrop-blur-xl bg-black/80  shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-purple-700/40 blur-[100px] rounded-full -z-10 top-10 left-20"></div>
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 -bottom-50 right-100"></div>
 
@@ -82,7 +82,7 @@ const Works = () => {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border border-gray-800 rounded-2xl backdrop-blur-xl shadow-lg hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
+            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border bg-white/5 border-gray-800 rounded-2xl backdrop-blur-xl shadow-lg hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
           >
             <div>
               <img

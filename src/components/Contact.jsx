@@ -75,7 +75,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-16 py-20 text-white backdrop-blur-xl bg-white/5 shadow-lg">
+    <div className="relative flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-16 py-20 text-white backdrop-blur-xl bg-black/80  shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-50 right-100"></div>
 
       {/* Contact Form Section */}
@@ -84,7 +84,7 @@ const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="border border-gray-800 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 sm:p-8 lg:p-10 space-y-6"
+        className="border bg-white/5 border-gray-800 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 sm:p-8 lg:p-10 space-y-6"
       >
         <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl text-center lg:text-left">
           <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
