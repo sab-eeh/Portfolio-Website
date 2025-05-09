@@ -38,7 +38,7 @@ const cardVariants = {
 
 const Skills = () => {
   return (
-    <div className="relative text-white px-4 md:px-10 lg:px-15 py-14 backdrop-blur-xl bg-black/90 shadow-lg">
+    <div className="relative text-white px-4 md:px-10 lg:px-15 py-14 backdrop-blur-xl bg-black/20 shadow-lg">
       <div className="absolute w-[200px] h-[200px] bg-blue-700/50 blur-[140px] rounded-full -z-10 bottom-0 right-50"></div>
 
       {/* Heading */}
@@ -73,7 +73,7 @@ const Skills = () => {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="w-[120px] h-[120px] flex flex-col items-center justify-center space-y-2 rounded-lg bg-white/5 border border-gray-800 backdrop-blur-xl shadow-lg hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200"
+            className="w-[120px] h-[120px] flex flex-col items-center justify-center space-y-2 rounded-lg border bg-white/10  border-gray-700 backdrop-blur-2xl shadow-lg hover:bg-[#1a1535d2] hover:border-purple-500 transition-all duration-200"
           >
             <div className="text-white">{skill.icon}</div>
             <span className="text-purple-200 text-sm font-medium">
