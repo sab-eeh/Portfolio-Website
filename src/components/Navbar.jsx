@@ -1,5 +1,6 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,8 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => {
@@ -41,8 +42,18 @@ const Navbar = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 `}>
-        <div className={`transition-opacity duration-300 ${hideExtras ? 'opacity-0' : 'opacity-100'}`}>
+      <motion.header
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 `}
+      >
+        <div
+          className={`transition-opacity duration-300 ${
+            hideExtras ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <button onClick={() => scrollToSection("home")}>
             <h1 className="text-purple-300 font-extrabold text-2xl">
               Sabeeh.Dev
@@ -74,7 +85,11 @@ const Navbar = () => {
         </nav>
 
         {/* Desktop Hire Me Button */}
-        <div className={`transition-opacity duration-300 hidden md:block ${hideExtras ? 'opacity-0' : 'opacity-100'}`}>
+        <div
+          className={`transition-opacity duration-300 hidden md:block ${
+            hideExtras ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <button
             onClick={() => scrollToSection("contact")}
             className="text-white font-semibold px-8 py-3 border-1 border-purple-600 rounded-3xl cursor-pointer hover:border-0 hover:bg-purple-600"
@@ -82,7 +97,7 @@ const Navbar = () => {
             Hire me
           </button>
         </div>
-      </header>
+      </motion.header>
 
       {/* Fullscreen Mobile Menu */}
       {isOpen && (
