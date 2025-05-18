@@ -42,11 +42,7 @@ const Navbar = () => {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+      <header
         className={`fixed top-0 left-0 right-0 flex justify-between items-center md:px-10 md:py-5 px-4 py-3 z-50 `}
       >
         <div
@@ -69,7 +65,13 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:block px-10 py-4 rounded-4xl backdrop-blur-xl bg-white/9 shadow-lg -ml-5">
+        <motion.nav
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="hidden md:block px-10 py-4 rounded-4xl backdrop-blur-xl bg-white/9 shadow-lg -ml-5"
+        >
           <ul className="text-white md:text-md flex md:gap-6 font-semibold">
             {navLinks.map((link) => (
               <li key={link.id}>
@@ -82,7 +84,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        </nav>
+        </motion.nav>
 
         {/* Desktop Hire Me Button */}
         <div
@@ -97,7 +99,7 @@ const Navbar = () => {
             Hire me
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Fullscreen Mobile Menu */}
       {isOpen && (
@@ -106,7 +108,6 @@ const Navbar = () => {
             <div className="text-purple-300 font-bold text-2xl">
               <button
                 onClick={() => scrollToSection("home")}
-                style={{ fontFamily: "Poetsen One" }}
               >
                 Sabeeh.Dev
               </button>
