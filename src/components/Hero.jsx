@@ -14,39 +14,47 @@ const Hero = () => {
       <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[120px] rounded-full -z-10 bottom-30 right-20"></div>
 
       <div className="max-w-5xl pt-15 w-full space-y-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="font-bold text-2xl sm:text-3xl md:text-4xl"
-        >
-          Hello, I’m Sabeeh Uddin
-        </motion.h1>
+        <div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-bold text-2xl sm:text-3xl md:text-3xl text-[#dddddd]"
+          >
+            Hello, I’m Sabeeh Uddin
+          </motion.h1>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight"
-        >
-          <span className="bg-gradient-to-r from-purple-700 to-purple-400 text-transparent bg-clip-text">
-            FULL STACK DEVELOPER
-          </span>
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            className="font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight"
+          >
+            <span className="bg-gradient-to-r from-purple-700 to-purple-400 text-transparent bg-clip-text">
+              FULL STACK DEVELOPER
+            </span>
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            className="font-semibold text-2xl sm:text-3xl md:text-5xl leading-tight text-[#dddddd]"
+          >
+            <span className="">Develop Digital Experiences for the Web</span>
+          </motion.h1>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="font-medium text-base sm:text-lg md:text-xl leading-relaxed px-2 md:px-0"
+          className="font-medium text-base sm:text-lg md:text-xl leading-relaxed px-2 md:px-0 text-[#dddddd]"
         >
-          I craft intuitive, high-performing websites and web apps using modern
-          technologies like React, Node.js, and MongoDB. My mission is to
-          simplify complex ideas into clean, scalable solutions that elevate
-          user experiences.
+         I design and develop fast, user-friendly websites and web applications using modern technologies like React, Node.js, and MongoDB. My goal is to turn complex ideas into clean, scalable solutions that deliver exceptional user experiences.
         </motion.p>
 
         <motion.div
