@@ -1,12 +1,37 @@
-# React + Vite
+# 💼 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack **MERN** (MongoDB, Express.js, React.js, Node.js) portfolio website built to showcase my work, technical skills, and contact information. The frontend is styled with **Tailwind CSS**, uses **React Router** for smooth navigation, and incorporates a clean, modern theme with **glassmorphism effects** for an elegant user interface.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React.js, Tailwind CSS, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (via MongoDB Atlas)
+- **Styling:** Tailwind CSS + custom utility classes for glassmorphism
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Responsive and mobile-friendly design
+- Stylish glassmorphism effects across components
+- React Router for multi-section navigation without full page reloads
+- Contact form with backend integration:
+  - Stores submissions in MongoDB
+  - Sends confirmation and admin emails via Nodemailer
+- Dynamic project and experience sections
+- Modern, minimalistic UI/UX with focus on readability and performance
+
+## 📸 Live Demo
+
+Check out the live version here:  
+👉 **[https://sabeeh-portfolio.vercel.app](https://sabeeh-portfolio.vercel.app)**
+
+## 🧑‍💻 Author
+
+**Sabeeh Uddin**  
+🔗 [Portfolio](https://sabeeh-portfolio.vercel.app)  
+🐙 [GitHub](https://github.com/sab-eeh)  
+💼 [LinkedIn](https://www.linkedin.com/in/sabeeh-uddin-91464a252/)
+
+---
+
+Feel free to clone this project, explore the code, or reach out for collaboration or feedback!
