@@ -1,9 +1,9 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-import image1 from "../assets/images/spotify ui.png";
-import image2 from "../assets/images/news web.png";
-import image3 from "../assets/images/inotebook.jpg";
+import image1 from "../assets/images/spotify ui.webp";
+import image2 from "../assets/images/news web.webp";
+import image3 from "../assets/images/inotebook.webp";
 
 const projects = [
   {
@@ -86,6 +86,7 @@ const Works = () => {
           >
             <div>
               <img
+                loading="lazy"
                 src={project.img}
                 alt="project image"
                 className="rounded-xl object-cover w-full"
