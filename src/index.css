@@ -8,14 +8,11 @@ html , body{
   
 }
 input{
-  background-color: rgb(8, 8, 8);
-  border: none;
   border-radius: 5px;
   padding: 10px 14px;
 }
 textarea{
-  background-color: rgb(8, 8, 8);
-  border: none;
+  background-color: white;
   border-radius: 5px;
   padding: 10px 14px;
   resize: none;
@@ -24,18 +21,23 @@ html{
   scroll-behavior: smooth;
 }
 ::-webkit-scrollbar{
-  width: 10px;
+  width: 12px;
 }
 ::-webkit-scrollbar-track{
-  background: rgb(18, 10, 37);
+  background: #F6F6F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #9810FA; 
+  background: #0F0F0F; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9810facc; 
+  background: #0F0F0F; 
   cursor: pointer;
 }
-
-
+.heading-Inter{
+  font-family: "Inter Tight", sans-serif;
+}
+.outlined-text {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}

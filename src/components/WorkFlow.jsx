@@ -50,8 +50,8 @@ const fadeUp = {
 
 const WorkFlow = () => {
   return (
-    <div className="relative text-white px-4 lg:px-25 py-16 space-y-12 backdrop-blur-xl bg-black/20  shadow-lg">
-      <div className="absolute w-[200px] h-[200px] bg-purple-600/30 blur-[130px] rounded-full -z-10 bottom-30 left-10"></div>
+    <div className="text-white px-4 lg:px-25 py-16 space-y-12 bg-[#F6F6F6] shadow-lg">
+      
 
       {/* Header */}
       <motion.div
@@ -62,11 +62,11 @@ const WorkFlow = () => {
         variants={fadeUp}
       >
         <h1 className="text-4xl lg:text-6xl font-extrabold">
-          <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
+          <span className="text-black">
             DEVELOPMENT WORKFLOW
           </span>
         </h1>
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+        <p className="text-lg text-black font-semibold max-w-3xl mx-auto">
           Here’s how I take your idea and turn it into a fully functional,
           professional website:
         </p>
@@ -84,18 +84,18 @@ const WorkFlow = () => {
           <motion.div
             key={index}
             variants={fadeUp}
-            className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 px-6 py-6 rounded-md backdrop-blur-xl shadow-lg border bg-white/10 border-gray-700 text-white hover:bg-purple-700 transition-all duration-200"
+            className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 px-6 py-6 rounded-md shadow-lg border bg-[#F6F6F6] border-gray-800 text-black hover:bg-black hover:text-white transition-all duration-200"
           >
             {/* Index + Title */}
             <div className="flex items-center gap-4 w-full lg:w-1/2">
-              <span className="text-purple-300 font-extrabold text-lg">
+              <span className=" font-extrabold text-lg">
                 {step.index}
               </span>
-              <h2 className="text-xl lg:text-2xl font-bold">{step.heading}</h2>
+              <h2 className="text-xl lg:text-3xl font-bold">{step.heading}</h2>
             </div>
 
             {/* Description */}
-            <div className="w-full lg:w-1/2 text-sm lg:text-base text-gray-200">
+            <div className="w-full lg:w-1/2 text-sm lg:text-base font-medium ">
               {step.content}
             </div>
           </motion.div>

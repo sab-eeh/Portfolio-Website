@@ -42,13 +42,11 @@ const cardVariants = {
 
 const Testimonials = () => {
   return (
-    <div className="relative text-white px-4 lg:px-20 py-20 space-y-12 backdrop-blur-xl bg-black/20  shadow-lg">
-      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[150px] rounded-full -z-10 top-20 right-100"></div>
-
+    <div className="text-white px-4 lg:px-20 py-20 space-y-12 bg-[#0F0F0F]  shadow-lg">
       {/* Header */}
       <div className="space-y-4 max-w-3xl mx-auto text-center">
         <h1 className="font-extrabold text-4xl lg:text-6xl">
-          <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
+          <span className="text-white">
             My Client's Stories
           </span>
         </h1>
@@ -63,7 +61,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="w-full md:w-[45%] lg:w-[30%] border bg-white/10  border-gray-700 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 hover:bg-[#1a153577] hover:border-gray-600 transition-all duration-200 cursor-pointer"
+            className="w-full md:w-[45%] lg:w-[30%]  bg-[#F6F6F6] text-black rounded-lg shadow-lg p-6 flex flex-col space-y-6 transition-all duration-200 cursor-pointer"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -72,11 +70,11 @@ const Testimonials = () => {
           >
             <h2 className="text-xl font-semibold">{testimonial.company}</h2>
             <div className="space-y-3">
-              <FaQuoteLeft className="text-purple-600 text-xl" />
-              <p className="text-purple-300 text-sm">"{testimonial.review}"</p>
+              <FaQuoteLeft className="text-[#0F0F0F] text-xl" />
+              <p className="text-gray-600 text-sm">"{testimonial.review}"</p>
               <div>
                 <h4 className="font-semibold">{testimonial.name}</h4>
-                <p className="text-purple-300 text-sm">{testimonial.designation}</p>
+                <p className="text-gray-600 text-sm">{testimonial.designation}</p>
               </div>
             </div>
           </motion.div>

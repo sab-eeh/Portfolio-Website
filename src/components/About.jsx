@@ -3,64 +3,44 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="relative text-white px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-14 lg:py-20 backdrop-blur-xl bg-black/20 shadow-lg">
-      {/* Background blur blob */}
-      <div className="absolute w-[300px] h-[300px] bg-purple-700/20 blur-[140px] rounded-full -z-10 left-150"></div>
-
+    <div className="relative text-white px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-14 lg:py-20 backdrop-blur-xl bg-[#0F0F0F] shadow-lg flex flex-col lg:flex-row items-start justify-between gap-10">
       {/* Header section */}
-      <div className="space-y-4 text-center lg:text-left">
+      <div className="space-y-4 text-center lg:text-left w-full lg:w-1/2">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          className="text-purple-200 font-medium text-lg sm:text-xl md:text-2xl"
+          className="text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
         >
-          INTRODUCTION
-        </motion.h1>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-extrabold text-4xl sm:text-5xl md:text-6xl"
-        >
-          <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
-            About Me.
-          </span>
+          CRAFTING SCALABLE SOLUTIONS & IMPACTFUL DIGITAL EXPERIENCES
         </motion.h1>
       </div>
 
       {/* Paragraph section */}
-      <div className="pt-8 mx-auto lg:mx-0">
+      <div className="mx-auto lg:mx-0 w-full lg:w-1/2">
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-base sm:text-lg leading-relaxed text-center lg:text-left"
+          className="text-base sm:text-lg leading-relaxed text-gray-300 text-center lg:text-left"
         >
-          I'm Sabeeh Uddin, a dedicated{" "}
-          <span className="text-purple-400">Web developer</span> currently
-          pursuing a Bachelor's degree in Computer Science at{" "}
-          <span className="text-purple-400">UIT University</span>. With a strong
-          focus on both frontend and backend development, I specialize in the
-          MERN stack and WordPress, creating scalable, responsive, and
-          user-centric web applications.
-          <br />
-          <br />
-          In addition to my academic and freelance work, I am an active member
-          of{" "}
-          <span className="text-purple-400">
-            Google Developer Group on Campus UIT (GDGOC)
-          </span>
-          .
-          <br />I also had the opportunity to participate in a national-level
-          hackathon, where my team was shortlisted among the{" "}
-          <span className="text-purple-400">Top 5 finalists</span>, highlighting
-          my ability to collaborate effectively and develop innovative technical
-          solutions under pressure.
+          Hey, I’m Sabeeh — a passionate <span className="text-white">web developer</span> with a strong foundation
+          in both frontend and backend technologies. Currently pursuing a
+          Bachelor's degree in Computer Science at UIT University, I specialize
+          in creating modern, responsive web experiences using the <span className="text-white">MERN stack </span> 
+          and <span className="text-white">WordPress.</span>  <br /> <br />
+           With a keen eye for usability and a drive for
+          performance, I build websites and applications that balance clean
+          design with solid engineering. From dynamic UIs to robust backend
+          systems, I aim to deliver products that are both functional and
+          user-focused. <br /> <br /> Beyond development, I’m actively engaged in the tech
+          community as a member of <span className="text-white">Google Developer Group on Campus (GDGOC)</span> and
+          have proven my collaborative problem-solving skills by being
+          shortlisted in the <span className="text-white">Top 5 teams at a national-level hackathon.</span> <br /> Let’s
+          build something meaningful together — where design meets code and
+          ideas become reality.
         </motion.p>
       </div>
     </div>

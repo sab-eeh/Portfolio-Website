@@ -78,9 +78,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative flex flex-col lg:flex-row items-start justify-center gap-6 px-4 sm:px-6 lg:px-16 py-20 text-white backdrop-blur-xl bg-black/20  shadow-lg">
-      <div className="absolute w-[200px] h-[200px] bg-blue-700/40 blur-[130px] rounded-full -z-10 bottom-50 right-100"></div>
-
+    <div className=" flex flex-col lg:flex-row items-start justify-center gap-6 px-4 sm:px-6 lg:px-16 py-20 text-black bg-[#F6F6F6]  shadow-lg">
       {/* Contact Form Section */}
       <motion.div
         variants={fadeUp}
@@ -90,18 +88,16 @@ const Contact = () => {
         className="border bg-white/10  border-gray-700 rounded-lg backdrop-blur-xl shadow-lg w-full lg:max-w-[55%] p-6 sm:p-8 lg:p-10 space-y-6"
       >
         <h1 className="font-bold text-3xl sm:text-5xl lg:text-4xl md:text-3xl text-center lg:text-left">
-          <span className="bg-gradient-to-r from-purple-600 to-purple-300 text-transparent bg-clip-text">
-            Send me a Message
-          </span>
+          <span className="text-black">Send me a Message</span>
         </h1>
-        <p className="text-lg text-center lg:text-left">
+        <p className="text-lg text-center lg:text-left text-black font-semibold">
           Have a project in mind or just want to say hi? I’d love to hear from
           you.
         </p>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <input
-            className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
+            className="w-full p-3 rounded-md bg-white border border-gray-200 focus:outline-none focus:border-purple-400"
             type="text"
             name="fullname"
             placeholder="Full Name"
@@ -110,7 +106,7 @@ const Contact = () => {
             required
           />
           <input
-            className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
+            className="w-full p-3 rounded-md bg-white border border-gray-200 focus:outline-none focus:border-purple-400"
             type="email"
             name="email"
             placeholder="Your Email"
@@ -119,7 +115,7 @@ const Contact = () => {
             required
           />
           <textarea
-            className="w-full p-3 rounded-md bg-white/10 border border-gray-700 focus:outline-none focus:border-purple-400"
+            className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-purple-400"
             rows="6"
             name="message"
             placeholder="How can I help you?"
@@ -129,7 +125,7 @@ const Contact = () => {
           ></textarea>
 
           <input
-            className="w-full p-3 rounded-md bg-gradient-to-r from-purple-800 to-purple-400 text-white font-semibold cursor-pointer hover:from-purple-700 hover:to-purple-500 transition-all"
+            className="w-full p-3 rounded-md bg-[#0F0F0F] text-white font-semibold cursor-pointer transition-all"
             type="submit"
             value={loading ? "Sending..." : "Send Message"}
             disabled={loading}
@@ -149,14 +145,14 @@ const Contact = () => {
         viewport={{ once: true }}
         className="w-full lg:w-1/3 space-y-6 mt-10 lg:mt-0 flex-col "
       >
-        <div className="border bg-white/10  border-gray-700 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 cursor-pointer">
+        <div className="border bg-[#F6F6F6]  border-gray-800 rounded-lg shadow-lg p-6 flex flex-col space-y-6 cursor-pointer">
           <h1 className="text-2xl font-semibold">Contact Information</h1>
           <div className="flex items-center gap-5">
-            <BiLogoGmail className="text-4xl text-white border border-purple-500 p-2 rounded-3xl" />
+            <BiLogoGmail className="text-4xl text-black border border-black p-2 rounded-3xl" />
             <div>
-              <p>Email</p>
+              <p className="font-medium">Email</p>
               <a
-                className="text-purple-500 hover:underline"
+                className="text-gray-700 hover:underline"
                 href="mailto:usabeeh72@gmail.com"
               >
                 usabeeh72@gmail.com
@@ -165,29 +161,29 @@ const Contact = () => {
           </div>
 
           <div className="flex items-center gap-5">
-            <FaPhone className="text-4xl text-white border border-purple-500 p-2 rounded-3xl" />
+            <FaPhone className="text-4xl text-black border border-black p-2 rounded-3xl" />
             <div>
-              <p>Phone Number</p>
-              <p className="text-purple-500">+92 331 290 4878</p>
+              <p className="font-medium">Phone Number</p>
+              <p className="text-gray-700">+92 331 290 4878</p>
             </div>
           </div>
         </div>
-        <div className="border bg-white/10  border-gray-700 rounded-lg backdrop-blur-xl shadow-lg p-6 flex flex-col space-y-6 cursor-pointer">
-        <h1 className="text-2xl font-semibold">Connect with Me</h1>
+        <div className="border bg-[#F6F6F6] border-gray-800 rounded-lg shadow-lg p-6 flex flex-col space-y-6 cursor-pointer">
+          <h1 className="text-2xl font-semibold">Connect with Me</h1>
           <div className="flex items-center gap-5">
             <a
               href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="text-4xl text-white border border-purple-500 p-2 rounded-3xl hover:bg-purple-600" />
+              <FaLinkedin className="text-4xl text-black border border-black p-2 rounded-3xl hover:bg-white" />
             </a>
             <div>
               <a
                 href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-400"
+                className="hover:text-gray-700 font-medium"
               >
                 LinkedIn
               </a>
@@ -200,14 +196,14 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="text-4xl text-white border border-purple-500 p-2 rounded-3xl hover:bg-purple-600" />
+              <FaGithub className="text-4xl text-black border border-black p-2 rounded-3xl hover:bg-white" />
             </a>
             <div>
               <a
                 href="https://github.com/sab-eeh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-400"
+                className="hover:text-gray-700 font-medium"
               >
                 GitHub
               </a>
