@@ -1,10 +1,13 @@
 import React from "react";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import { BiLogoGmail } from "react-icons/bi";
-import { IoMdContact } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaCircleArrowRight } from "react-icons/fa6";
+
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const Hero = () => {
   return (
@@ -28,7 +31,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             className=" text-4xl sm:text-5xl md:text-7xl leading-tight"
           >
-            <span className="text-black tracking-wide font-extrabold">
+            <span className="text-black -tracking-tighter font-extrabold">
               WEB DESINER
             </span>
           </motion.h1>
@@ -57,67 +60,13 @@ const Hero = () => {
           to turn complex ideas into clean, scalable solutions that deliver
           exceptional user experiences.
         </motion.p>
-
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-4 md:gap-5 pt-4"
+        <button
+          onClick={() => scrollToSection("contact")}
+          className="bg-black py-3 px-5  rounded-3xl flex items-center border border-black gap-4 mx-auto cursor-pointer text-white hover:text-black hover:bg-white  font-medium"
         >
-          <Link to="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 font-semibold px-6 py-2 border-1 border-purple-600 rounded-xl cursor-pointer hover:bg-purple-600 "
-            >
-              <IoMdContact className="text-lg md:text-xl" />
-              <p>Contact</p>
-            </motion.button>
-          </Link>
-
-          <div className="flex gap-2">
-            <motion.a
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-              whileHover={{ scale: 1.1 }}
-              href="https://www.linkedin.com/in/sabeeh-uddin-91464a252/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
-            >
-              <FaLinkedin className="text-lg md:text-2xl cursor-pointer" />
-            </motion.a>
-
-            <motion.a
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.4 }}
-              whileHover={{ scale: 1.1 }}
-              href="https://github.com/sab-eeh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
-            >
-              <FaGithub className="text-xl md:text-2xl cursor-pointer" />
-            </motion.a>
-
-            <motion.a
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.4 }}
-              whileHover={{ scale: 1.1 }}
-              href="mailto:usabeeh72@gmail.com"
-              className="hover:bg-purple-600 border-1 border-purple-500 p-2 rounded-4xl"
-            >
-              <BiLogoGmail className="text-xl md:text-2xl cursor-pointer" />
-            </motion.a>
-          </div>
-        </motion.div> */}
+          Get in Touch
+          <FaCircleArrowRight size={22} />
+        </button>
       </div>
     </div>
   );

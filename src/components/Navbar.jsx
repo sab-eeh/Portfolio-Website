@@ -122,7 +122,7 @@ const Navbar = () => {
         >
           <button
             onClick={() => scrollToSection("contact")}
-            className="text-black font-semibold px-8 py-3 border-2 border-black rounded-3xl cursor-pointer hover:border-0 hover:bg-black hover:text-white"
+            className="text-black font-semibold px-8 py-3 border-2 border-black rounded-3xl cursor-pointer hover:border-2 hover:bg-black hover:text-white "
           >
             Hire me
           </button>

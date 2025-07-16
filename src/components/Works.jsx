@@ -1,12 +1,9 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { RiExternalLinkFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 import image1 from "../assets/images/spotify ui.webp";
 import image2 from "../assets/images/news web.webp";
 import image3 from "../assets/images/inotebook.webp";
-import appmockup from "../assets/images/smartphone/mobileapp.jpg";
-import webmockup from "../assets/images/web/landingpage.jpg";
 
 const projects = [
   {
@@ -114,48 +111,10 @@ const Works = () => {
                 <FaGithub className="text-lg" />
                 View Project
               </a>
-              <a
-                href={project.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#979797] hover:text-white transition-all"
-              >
-                <RiExternalLinkFill className="text-lg" />
-              </a>
             </div>
           </motion.div>
         ))}
       </motion.div>
-
-      {/* <section class="w-full py-16 px-4 flex flex-col items-center text-center">
-        <div class="mb-12 max-w-2xl">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black ">
-            Our Latest Designs
-          </h2>
-          <p class="text-lg text-black">
-            A showcase of our recent UI concepts — crafted for web and mobile
-            platforms.
-          </p>
-        </div>
-
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-          <div class="w-full md:w-2/3 max-w-[550px]">
-            <img
-              src={webmockup}
-              alt="Web Dashboard Mockup"
-              class="w-full h-auto rounded-xl shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
-            />
-          </div>
-
-          <div class="w-full md:w-1/3 max-w-[500px]">
-            <img
-              src={appmockup}
-              alt="Mobile App Mockup"
-              class="w-full h-auto rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-            />
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };
