@@ -9,7 +9,7 @@ import Works from "./Works";
 
 const Home = () => {
   return (
-    <main className="p-2 w-full min-h-screen bg-[#362b22] text-white font-[Poppins] overflow-x-hidden scroll-smooth flex flex-col gap-2">
+    <main className="p-2 w-full min-h-screen bg-[#362b22] text-white font-[Poppins] overflow-x-hidden scroll-smooth flex flex-col gap-2 mx-auto">
       {/* Hero Section */}
       <section id="home">
         <Hero />
