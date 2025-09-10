@@ -89,7 +89,7 @@ const Testimonials = () => {
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
-                className="flex-[0_0_100%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_40%] px-4"
+                className="flex-[0_0_100%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_40%] px-1"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
