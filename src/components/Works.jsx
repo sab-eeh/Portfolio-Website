@@ -1,25 +1,55 @@
-import React from "react";
+// src/components/Works.jsx
+import React, { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import image1 from "../assets/images/spotify ui.webp";
 import image2 from "../assets/images/news web.webp";
 import image3 from "../assets/images/inotebook.webp";
+import image4 from "../assets/images/ecommerce.webp";
+import image5 from "../assets/images/precision.webp";
+import image6 from "../assets/images/katalyxmedia.webp";
 
 const projects = [
+  {
+    img: image4,
+    title: "Ecommerce Website",
+    description:
+      "A full-stack ecommerce platform for purchasing Apple iPhones online with a seamless shopping experience, responsive design, and secure transactions.",
+    tech: ["React.js", "TailwindCSS", "Node.js", "MySQL"],
+    github: "https://github.com/sab-eeh/Iphone-Purchase-Ecommerce-Website",
+  },
+  {
+    img: image5,
+    title: "Precision Toronto",
+    description:
+      "A client project for a detailing business featuring a modern interface and an integrated booking system to streamline customer appointments.",
+    tech: ["React.js", "TailwindCSS", "Node.js", "Express.js", "MongoDB"],
+    github: "https://github.com/sab-eeh/Precision-Toronto",
+  },
+  {
+    img: image6,
+    title: "Katalyx Media",
+    description:
+      "A sleek, conversion-focused landing page built for a marketing agency to showcase services and strengthen brand presence online.",
+    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
+    github: "https://github.com/sab-eeh/katalyx-Media-Landing-Page",
+  },
   {
     img: image1,
     title: "Spotify UI Clone",
     description:
-      "A beautiful front-end replica of Spotify's interface built with modern UI principles and smooth transitions. It offers an immersive design experience using clean layout and dark mode aesthetics.",
+      "A pixel-perfect front-end clone of Spotify’s interface featuring smooth transitions, immersive layouts, and a modern dark theme.",
     tech: ["React.js", "TailwindCSS", "Framer Motion"],
     github: "https://github.com/sab-eeh/Spotify-Clone",
-    website: "https://sspotifyyclone.netlify.app/",
   },
   {
     img: image3,
     title: "iNotebook",
     description:
-      "A full-stack notes management app with secure authentication. Users can create, edit, and delete personal notes in real-time with clean UI and protected routes.",
+      "A notes management app with authentication that allows users to create, edit, and organize notes securely in real time.",
     tech: ["React.js", "Node.js", "MongoDB", "Express"],
     github: "https://github.com/sab-eeh/iNoteBook",
   },
@@ -27,95 +57,143 @@ const projects = [
     img: image2,
     title: "News Application",
     description:
-      "A responsive application delivering real-time news from around the world. Built using external APIs, it features category-wise filtering and elegant UI components.",
-    tech: ["React.js", "External NewsAPI", "Bootstrap"],
+      "A responsive web app delivering live news updates with category filtering, clean UI, and smooth browsing experience.",
+    tech: ["React.js", "NewsAPI", "Bootstrap"],
     github: "https://github.com/sab-eeh/News-Application",
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 const Works = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    containScroll: "trimSnaps", // makes sure no empty gaps
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  const scrollTo = useCallback(
+    (i) => emblaApi && emblaApi.scrollTo(i),
+    [emblaApi]
+  );
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi]
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi]
+  );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", () =>
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    );
+  }, [emblaApi]);
+
   return (
-    <div className="px-6 py-20 lg:px-15 text-white backdrop-blur-xl bg-[#F6F6F6]">
+    <section className="w-full bg-[var(--color-section)] text-[var(--color-primary)] px-6 sm:px-10 lg:px-14 py-20 rounded-2xl shadow-inner shadow-amber-100">
       {/* Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6 }}
-        className="text-center space-y-4 mb-12"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center max-w-3xl mx-auto mb-14 space-y-4"
       >
-        <h1 className="font-extrabold text-4xl lg:text-6xl">
-          <span className="text-black ">PORTFOLIO</span>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          <span className="italic text-[#d0bfae]">My</span> Works
         </h1>
-        <p className="text-lg text-black font-semibold">
+        <p className="text-[var(--color-primary)] text-base sm:text-lg font-medium">
           A glimpse into some of the projects I’ve built recently.
         </p>
       </motion.div>
 
-      {/* Project Cards */}
-      <motion.div
-        className="flex flex-col lg:flex-row flex-wrap justify-center lg:items-stretch gap-8 items-center"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            className="w-full sm:w-[90%] md:w-[80%] lg:w-[30%] border bg-[#0F0F0F] border-gray-700 rounded-2xl shadow-xlh over:border-purple-500 transition-all duration-200 p-6 space-y-5 cursor-pointer"
-          >
-            <div>
-              <img
-                loading="lazy"
-                src={project.img}
-                alt="project image"
-                className="rounded-xl object-cover w-full"
-              />
-            </div>
-            <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-            <p className="text-[#979797]">{project.description}</p>
-
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="text-sm border border-[#979797] px-2 py-1 rounded-full text-white"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <div className="flex justify-between items-center">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#979797] hover:text-white transition-all"
+      {/* Carousel */}
+      <div className="relative">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="flex-[0_0_100%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_33%] px-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                viewport={{ once: true }}
               >
-                <FaGithub className="text-lg" />
-                View Project
-              </a>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+                <div className="bg-[#111111] border border-[#f5dec8] rounded-2xl p-6 space-y-5 shadow-lg hover:shadow-amber-200/20 transition-all flex flex-col h-full">
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    className="rounded-xl w-full object-cover h-48"
+                  />
+                  <div className="flex-grow flex flex-col space-y-3">
+                    <h2 className="text-2xl font-bold text-[var(--color-secondary)]">
+                      {project.title}
+                    </h2>
+                    <p className="text-[var(--color-primary)] text-sm flex-grow">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="text-xs border border-[#d0bfae] px-2 py-1 rounded-full text-[var(--color-primary)]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-all mt-auto"
+                  >
+                    <FaGithub className="text-lg" />
+                    View Project
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <button
+          onClick={scrollPrev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#111111] p-3 rounded-full border border-[#d0bfae] hover:bg-[#d0bfae]/20 transition"
+        >
+          <ChevronLeft className="text-[var(--color-primary)]" />
+        </button>
+        <button
+          onClick={scrollNext}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#111111] p-3 rounded-full border border-[#d0bfae] hover:bg-[#d0bfae]/20 transition"
+        >
+          <ChevronRight className="text-[var(--color-primary)]" />
+        </button>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-3 mt-6">
+          {scrollSnaps.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              className={`w-3 h-3 rounded-full transition ${
+                i === selectedIndex
+                  ? "bg-[#d0bfae]"
+                  : "bg-gray-600 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

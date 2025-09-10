@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
+  {
+    company: "Katalyx Media Agency",
+    review:
+      "Sabeeh is a great web developer to work with. From the beginning to the end Sabeeh’s communication and attention to detail amazed me. If your looking for a reliable web developer who’s easy to work with, work with Sabeeh",
+    name: "Laksh Puri",
+    designation: "Owner",
+  },
   {
     company: "SkyWebDesign Agency",
     review:
@@ -13,7 +22,7 @@ const testimonials = [
   {
     company: "Yash",
     review:
-      "Sabeeh brilliantly translated our Figma design into a stunning, functional website. His attention to detail and technical proficiency exceeded our expectations, delivering a site that stands out.",
+      "Sabeeh brilliantly translated our Figma design into a stunning, functional website. His attention to detail and technical proficiency exceeded our expectations.",
     name: "Yash",
     designation: "Client",
   },
@@ -26,61 +35,111 @@ const testimonials = [
   },
 ];
 
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
 const Testimonials = () => {
-  return (
-    <div className="text-white px-4 lg:px-20 py-20 space-y-12 bg-[#0F0F0F]  shadow-lg">
-      {/* Header */}
-      <div className="space-y-4 max-w-3xl mx-auto text-center">
-        <h1 className="font-extrabold text-4xl lg:text-6xl">
-          <span className="text-white">
-            My Client's Stories
-          </span>
-        </h1>
-        <p className="text-lg text-gray-300">
-          I’ve had the pleasure of working with some amazing brands and
-          business owners. Here’s what a few of them had to say:
-        </p>
-      </div>
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+  );
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
 
-      {/* Testimonials Cards */}
-      <div className="flex flex-wrap justify-center gap-6">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            className="w-full md:w-[45%] lg:w-[30%]  bg-[#F6F6F6] text-black rounded-lg shadow-lg p-6 flex flex-col space-y-6 transition-all duration-200 cursor-pointer"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={index}
-          >
-            <h2 className="text-xl font-semibold">{testimonial.company}</h2>
-            <div className="space-y-3">
-              <FaQuoteLeft className="text-[#0F0F0F] text-xl" />
-              <p className="text-gray-600 text-sm">"{testimonial.review}"</p>
-              <div>
-                <h4 className="font-semibold">{testimonial.name}</h4>
-                <p className="text-gray-600 text-sm">{testimonial.designation}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+  const scrollTo = useCallback(
+    (i) => emblaApi && emblaApi.scrollTo(i),
+    [emblaApi]
+  );
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi]
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi]
+  );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", () =>
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    );
+  }, [emblaApi]);
+
+  return (
+    <section className="w-full bg-[var(--color-section)] text-[var(--color-primary)] px-6 sm:px-10 lg:px-14 py-20 rounded-2xl shadow-inner shadow-amber-100">
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center max-w-3xl mx-auto mb-14 space-y-4"
+      >
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          <span className="italic text-[var(--color-accent)]">Client</span> Stories
+        </h1>
+        <p className="text-[var(--color-primary)] text-base sm:text-lg font-medium">
+          Experiences shared by some amazing clients I had the privilege to work
+          with.
+        </p>
+      </motion.div>
+
+      {/* Carousel */}
+      <div className="relative">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                className="flex-[0_0_100%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_40%] px-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-[var(--color-section)] border border-[#f5dec8] rounded-2xl p-8 h-full shadow-lg hover:shadow-amber-200/20 transition-all flex flex-col justify-between">
+                  <FaQuoteLeft className="text-[var(--color-accent)] text-2xl mb-4" />
+                  <p className="text-[var(--color-primary)] text-base italic">"{t.review}"</p>
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold text-[var(--color-accent)]">{t.company}</h3>
+                    <p className="text-[var(--color-primary)] text-sm">
+                      {t.name} — {t.designation}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <button
+          onClick={scrollPrev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#111111] p-3 rounded-full border border-[#d0bfae] hover:bg-[#d0bfae]/20 transition"
+        >
+          <ChevronLeft className="text-[var(--color-primary)]" />
+        </button>
+        <button
+          onClick={scrollNext}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#111111] p-3 rounded-full border border-[#d0bfae] hover:bg-[#d0bfae]/20 transition"
+        >
+          <ChevronRight className="text-[var(--color-primary)]" />
+        </button>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-3 mt-6">
+          {scrollSnaps.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              className={`w-3 h-3 rounded-full transition ${
+                i === selectedIndex
+                  ? "bg-[#d0bfae]"
+                  : "bg-gray-600 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

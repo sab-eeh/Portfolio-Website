@@ -1,4 +1,3 @@
-// api/contact.js
 import { connectToDatabase, FormModel } from "./db.js";
 import { transporter } from "./email.js";
 

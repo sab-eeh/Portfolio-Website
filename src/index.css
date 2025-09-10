@@ -1,43 +1,72 @@
 @import "tailwindcss";
-*{
+
+* {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
-html , body{
+
+html,
+body {
   overflow-x: hidden;
-  
-}
-input{
-  border-radius: 5px;
-  padding: 10px 14px;
-}
-textarea{
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px 14px;
-  resize: none;
-}
-html{
-  scroll-behavior: smooth;
-}
-::-webkit-scrollbar{
-  width: 12px;
-}
-::-webkit-scrollbar-track{
-  background: #F6F6F6;
-}
-::-webkit-scrollbar-thumb {
-  background: #0F0F0F; 
+  width: 100%;
 }
 
+body {
+  background-color: #362b22; /* Dark brown */
+  margin: 8px 0px;
+  color: var(--text-primary);
+}
+
+/* Input / textarea */
+input,
+textarea {
+  border-radius: 5px;
+  padding: 10px 14px;
+  background: var(--section-bg);
+  color: var(--text-primary);
+}
+::placeholder{
+  color: var(--text-primary);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F0F0F; 
+  background: var(--scrollbar-hover);
   cursor: pointer;
 }
-.heading-Inter{
+
+/* Headings + text */
+.heading-Inter {
   font-family: "Inter Tight", sans-serif;
 }
 .outlined-text {
   color: transparent;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1px var(--text-accent);
 }
+/* index.css or global.css */
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #f5dec8;
+  --color-accent: #e6d5c3;
+  --color-section: #0f0f0d;
+  --color-bodybg: #362b22;
+}
+

@@ -9,26 +9,42 @@ import Works from "./Works";
 
 const Home = () => {
   return (
-    <main className="scroll-smooth ">
+    <main className="p-2 w-full min-h-screen bg-[#362b22] text-white font-[Poppins] overflow-x-hidden scroll-smooth flex flex-col gap-2">
+      {/* Hero Section */}
       <section id="home">
         <Hero />
       </section>
-      <section id="about" >
+
+      {/* About Section */}
+      <section id="about">
         <About />
       </section>
+
+      {/* Skills Section */}
       <section id="skills">
         <Skills />
       </section>
+
+      {/* Works Section */}
       <section id="works">
-        <Works/>
+        <Works />
       </section>
-      <section id="workflow">
+
+      {/* Workflow Section */}
+      <section id="workflo">
         <WorkFlow />
       </section>
-      <section id="testimonials">
+
+      {/* Testimonials Section */}
+      <section
+        id="testimonials"
+        className=""
+      >
         <Testimonials />
       </section>
-      <section id="contact">
+
+      {/* Contact Section */}
+      <section id="contact" className="">
         <Contact />
       </section>
     </main>

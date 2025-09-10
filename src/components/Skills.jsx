@@ -8,58 +8,58 @@ import { RiNextjsFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 
 const Icons = [
-  { icon: <FaHtml5 size={40} />, name: "HTML5" },
-  { icon: <IoLogoCss3 size={40} />, name: "CSS3" },
-  { icon: <IoLogoJavascript size={40} />, name: "JavaScript" },
-  { icon: <BiLogoTypescript size={40} />, name: "TypeScript" },
-  { icon: <FaReact size={40} />, name: "React" },
-  { icon: <FaNodeJs size={40} />, name: "Node.js" },
-  { icon: <SiExpress size={40} />, name: "Express.js" },
-  { icon: <RiNextjsFill size={40} />, name: "Next.js" },
-  { icon: <SiMongodb size={40} />, name: "MongoDB" },
-  { icon: <SiMysql size={40} />, name: "MySQL" },
-  { icon: <FaWordpress size={40} />, name: "WordPress" },
-  { icon: <FaFigma size={40} />, name: "Figma" },
+  { icon: <FaHtml5 size={38} />, name: "HTML5" },
+  { icon: <IoLogoCss3 size={38} />, name: "CSS3" },
+  { icon: <IoLogoJavascript size={38} />, name: "JavaScript" },
+  { icon: <BiLogoTypescript size={38} />, name: "TypeScript" },
+  { icon: <FaReact size={38} />, name: "React" },
+  { icon: <FaNodeJs size={38} />, name: "Node.js" },
+  { icon: <SiExpress size={38} />, name: "Express.js" },
+  { icon: <RiNextjsFill size={38} />, name: "Next.js" },
+  { icon: <SiMongodb size={38} />, name: "MongoDB" },
+  { icon: <SiMysql size={38} />, name: "MySQL" },
+  { icon: <FaWordpress size={38} />, name: "WordPress" },
+  { icon: <FaFigma size={38} />, name: "Figma" },
 ];
 
 const containerVariants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 const Skills = () => {
   return (
-    <div className="text-white px-4 md:px-10 lg:px-15 py-14 bg-[#F6F6F6]">
+    <section className="w-full bg-[var(--color-section)] text-[var(--color-primary)] px-6 sm:px-10 lg:px-16 py-16 rounded-2xl  shadow-inner shadow-amber-100 inset-shadow-amber-100 ">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6 }}
-        className="text-center max-w-3xl mx-auto mb-12 space-y-4"
+        className="text-center max-w-3xl mx-auto mb-14 space-y-4"
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold">
-          <span className="text-black">MY SKILLS</span>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          <span className="italic text-[var(--color-secondary)]">My</span> Skills
         </h1>
-        <p className="text-lg text-black font-semibold">
-          I craft tailored web solutions by blending creativity with technical
-          precision—powered by these technologies to elevate your brand and
-          engage your audience.
+        <p className="text-[var(--color-primary)] text-base sm:text-lg font-medium">
+          From crafting seamless user interfaces to building powerful backend
+          systems, these are the tools and technologies I use to bring ideas to
+          life.
         </p>
       </motion.div>
 
-      {/* Skills Cards */}
+      {/* Skills Grid */}
       <motion.div
-        className="flex flex-wrap justify-center gap-6"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -69,14 +69,22 @@ const Skills = () => {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="w-[120px] h-[120px] flex flex-col items-center justify-center space-y-2 rounded-lg border border-gray-800 shadow-xl  transition-all duration-200"
+            whileHover={{ scale: 1.08, y: -4 }}
+            transition={{ type: "spring", stiffness: 200, damping: 12 }}
+            className="flex flex-col items-center justify-center p-5 rounded-xl 
+                       bg-[#111111] border border-[#f5dec8]
+                    
+                    
+                       hover:border-[#d0bfae]/60 transition-all"
           >
-            <div className="text-black">{skill.icon}</div>
-            <span className="text-black text-sm font-medium">{skill.name}</span>
+            <div className="text-[var(--color-secondary)]">{skill.icon}</div>
+            <span className="text-sm font-medium text-[var(--color-primary)] mt-2">
+              {skill.name}
+            </span>
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
