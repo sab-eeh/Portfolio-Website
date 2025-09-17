@@ -6,7 +6,7 @@ import { BiLogoGmail } from "react-icons/bi";
 import image1 from "../assets/images/ecommerce.webp";
 import image2 from "../assets/images/precision.webp";
 import image3 from "../assets/images/katalyxmedia.webp";
-import profile from "../assets/images/profile.jpg";
+import profile from "../assets/images/profile.png";
 
 const scrollToSection = (id) => {
   const section = document.getElementById(id);
