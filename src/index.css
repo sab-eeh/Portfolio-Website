@@ -11,11 +11,7 @@ body {
   width: 100%;
 }
 
-body {
-  background-color: #362b22; /* Dark brown */
-  margin: 8px 0px;
-  color: var(--text-primary);
-}
+
 
 /* Input / textarea */
 input,
@@ -25,7 +21,7 @@ textarea {
   background: var(--section-bg);
   color: var(--text-primary);
 }
-::placeholder{
+::placeholder {
   color: var(--text-primary);
 }
 
@@ -62,11 +58,3 @@ html {
   -webkit-text-stroke: 1px var(--text-accent);
 }
 /* index.css or global.css */
-:root {
-  --color-primary: #ffffff;
-  --color-secondary: #f5dec8;
-  --color-accent: #e6d5c3;
-  --color-section: #0f0f0d;
-  --color-bodybg: #362b22;
-}
-

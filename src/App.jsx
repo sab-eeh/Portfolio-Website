@@ -1,45 +1,35 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import { useEffect } from "react";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+
+import AppRoutes from "./routes/AppRoutes";
+
+import useScrollToTop from "./hooks/useScrollToTop";
+
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
-const ScrollToSection = () => {
-  const location = useLocation();
+const AppContent = () => {
+  useScrollToTop();
 
-  useEffect(() => {
-    const sectionId = location.pathname.substring(1); // removes "/" from "/about" → "about"
-    if (!sectionId || sectionId === "") return;
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [location]);
-
-  return null;
+  return (
+    <>
+      <Navbar />
+      <AppRoutes />
+      <Footer />
+    </>
+  );
 };
 
 const App = () => {
   return (
     <>
-    <Analytics/>
-    <SpeedInsights/>
+      <Analytics />
+      <SpeedInsights />
+
       <Router>
-        <ScrollToSection />
-        <Navbar />
-        <Routes>
-          <Route path="/*" element={<Home />} />
-        </Routes>
-        <Footer />
+        <AppContent />
       </Router>
     </>
   );

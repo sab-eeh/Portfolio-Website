@@ -1,20 +1,45 @@
-// /api/db.js
+// api/db.js
+
 import mongoose from "mongoose";
 
-const formSchema = new mongoose.Schema({
-  fullname: String,
-  email: String,
-  message: String,
-});
+const formSchema = new mongoose.Schema(
+  {
+    fullname: {
+      type: String,
+      required: true,
+    },
+
+    email: {
+      type: String,
+      required: true,
+    },
+
+    message: {
+      type: String,
+      required: true,
+    },
+  },
+
+  {
+    timestamps: true,
+  },
+);
 
 export const FormModel =
   mongoose.models.Form || mongoose.model("Form", formSchema);
 
-export const connectToDatabase = async () => {
-  if (mongoose.connections[0].readyState) return;
+export async function connectToDatabase() {
+  try {
+    if (mongoose.connection.readyState >= 1) {
+      return;
+    }
 
-  await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-};
+    await mongoose.connect(process.env.MONGODB_URI);
+
+    console.log("MongoDB Connected");
+  } catch (error) {
+    console.error("MongoDB Error:", error);
+
+    throw error;
+  }
+}
