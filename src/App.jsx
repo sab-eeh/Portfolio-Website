@@ -1,8 +1,8 @@
 import { BrowserRouter as Router } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-
+const Navbar = lazy(() => import("./components/layout/Navbar"));
+const Footer = lazy(() => import("./components/layout/Footer"));
 import AppRoutes from "./routes/AppRoutes";
 
 import useScrollToTop from "./hooks/useScrollToTop";
@@ -15,9 +15,13 @@ const AppContent = () => {
 
   return (
     <>
-      <Navbar />
+      <Suspense>
+        <Navbar />
+      </Suspense>
       <AppRoutes />
-      <Footer />
+      <Suspense>
+        <Footer />
+      </Suspense>
     </>
   );
 };
