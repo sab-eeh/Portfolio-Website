@@ -1,20 +1,14 @@
+import { lazy, Suspense } from "react";
+
 import Hero from "../features/home/Hero";
 
-import { About } from "../features/home/About";
-
-import Skills from "../features/home/Skills";
-
-import Services from "../features/home/Services";
-
-import WorkPreview from "../features/home/WorkPreview";
-
-import Testimonials from "../features/home/Testimonials";
-
-import CTA from "../features/home/CTA";
-
-import Contact from "../features/home/Contact";
-
-
+const About = lazy(() => import("../features/home/About.jsx"));
+const Skills = lazy(() => import("../features/home/Skills"));
+const Services = lazy(() => import("../features/home/Services.jsx"));
+const WorkPreview = lazy(() => import("../features/home/WorkPreview.jsx"));
+const Testimonials = lazy(() => import("../features/home/Testimonials.jsx"));
+const CTA = lazy(() => import("../features/home/CTA.jsx"));
+const Contact = lazy(() => import("../features/home/Contact.jsx"));
 
 const Home = () => {
   return (
@@ -30,25 +24,33 @@ const Home = () => {
       {/* HERO */}
       <Hero />
 
-      {/* SERVICES */}
-      <Services />
+      <Suspense fallback={null}>
+        <Services />
+      </Suspense>
 
-      {/* ABOUT */}
-      <About />
+      <Suspense fallback={null}>
+        <About />
+      </Suspense>
 
-      {/* SKILLS */}
-      <Skills />
+      <Suspense fallback={null}>
+        <Skills />
+      </Suspense>
 
-      {/* PROJECTS */}
-      <WorkPreview />
-      {/* CTA */}
-      <CTA />
+      <Suspense fallback={null}>
+        <WorkPreview />
+      </Suspense>
 
-      {/* TESTIMONIALS */}
-      <Testimonials />
+      <Suspense fallback={null}>
+        <CTA />
+      </Suspense>
 
-      {/* CONTACT */}
-      <Contact />
+      <Suspense fallback={null}>
+        <Testimonials />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <Contact />
+      </Suspense>
     </main>
   );
 };

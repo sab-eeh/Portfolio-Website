@@ -85,9 +85,6 @@ const Services = () => {
   const Card = ({ service, index }) => {
     return (
       <motion.div
-        whileHover={{
-          y: -4,
-        }}
         transition={{
           duration: 0.3,
         }}
@@ -102,6 +99,8 @@ const Services = () => {
           min-h-[420px]
           transition-all
           duration-300
+          hover:-translate-y-1
+
 
           ${
             service.featured
@@ -112,7 +111,7 @@ const Services = () => {
               : `
                 bg-white/[0.03]
                 border-white/10
-                backdrop-blur-xl
+                
               `
           }
         `}
@@ -218,6 +217,8 @@ const Services = () => {
                 w-full
                 h-[220px]
               "
+              width="600"
+              height="400"
             >
               <img
                 src={service.image}
@@ -357,7 +358,7 @@ const Services = () => {
               w-[320px]
               h-[320px]
               bg-orange-500/[0.08]
-              blur-[100px]
+              blur-[40px]
               pointer-events-none
             "
           />

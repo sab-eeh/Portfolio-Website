@@ -240,7 +240,7 @@ const Hero = () => {
               "
             >
               {/* LEFT INFO */}
-              <motion.div
+              <div
                 initial={{
                   opacity: 0,
                   x: -20,
@@ -318,10 +318,10 @@ const Hero = () => {
                   Specialized in premium frontend systems, motion design, and
                   modern React architecture.
                 </p>
-              </motion.div>
+              </div>
 
               {/* RIGHT INFO */}
-              <motion.div
+              <div
                 initial={{
                   opacity: 0,
                   x: 20,
@@ -391,10 +391,10 @@ const Hero = () => {
                   Focused on cinematic interfaces, responsive systems, and
                   scalable UI architecture.
                 </p>
-              </motion.div>
+              </div>
 
               {/* ORANGE CIRCLE */}
-              <motion.div
+              <div
                 initial={{
                   opacity: 0,
                   scale: 0.9,
@@ -451,7 +451,7 @@ const Hero = () => {
 
                 bg-orange-500/20
 
-                blur-[100px]
+                blur-[40px]
 
                 z-0
                 "
@@ -461,6 +461,8 @@ const Hero = () => {
               <motion.img
                 src={profile}
                 alt="Sabeeh"
+                width="500"
+                height="650"
                 initial={{
                   opacity: 0,
                   y: 50,
@@ -494,7 +496,7 @@ const Hero = () => {
               />
 
               {/* CTA */}
-              <motion.div
+              <div
                 initial={{
                   opacity: 0,
                   y: 16,
@@ -527,8 +529,8 @@ const Hero = () => {
                   border
                   border-white/40
 
-                  bg-white/75
-                  backdrop-blur-2xl
+                  bg-white/90
+             
 
                   p-2
 
@@ -604,7 +606,7 @@ const Hero = () => {
                     Hire Me
                   </button>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 

@@ -1,14 +1,37 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import ProjectPage from "../pages/ProjectPage";
-import NotFound from "../pages/NotFound";
+import { lazy, Suspense } from "react";
+
+const Home = lazy(() => import("../pages/Home"));
+const ProjectPage = lazy(() => import("../pages/ProjectPage"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/projects/:slug" element={<ProjectPage />} />
-      <Route path="*" element={<NotFound />} />
+      <Route
+        path="/"
+        element={
+          <Suspense>
+            <Home />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/projects/:slug"
+        element={
+          <Suspense>
+            <ProjectPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Suspense>
+            <NotFound />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 };
