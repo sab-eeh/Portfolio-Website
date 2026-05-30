@@ -1,4 +1,4 @@
-// api/contact.js
+import validator from "validator";
 
 import { connectToDatabase, FormModel } from "./db.js";
 
@@ -16,6 +16,7 @@ export default async function handler(req, res) {
     const { fullname, email, message } = req.body;
 
     /* VALIDATION */
+
     if (!fullname || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -23,72 +24,111 @@ export default async function handler(req, res) {
       });
     }
 
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a valid email address",
+      });
+    }
+
+    if (fullname.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: "Name is too long",
+      });
+    }
+
+    if (message.length > 2000) {
+      return res.status(400).json({
+        success: false,
+        message: "Message is too long",
+      });
+    }
+
+    const cleanName = validator.escape(fullname.trim());
+
+    const cleanEmail = validator.normalizeEmail(email.trim());
+
+    const cleanMessage = validator.escape(message.trim());
+
     /* DATABASE */
+
     await connectToDatabase();
 
-    const newMessage = await FormModel.create({
-      fullname,
-      email,
-      message,
+    const savedMessage = await FormModel.create({
+      fullname: cleanName,
+      email: cleanEmail,
+      message: cleanMessage,
     });
 
     /* EMAIL TO USER */
-    await transporter.sendMail({
-      from: process.env.SMTP_EMAIL,
 
-      to: email,
+    await transporter.sendMail({
+      from: `"Sabeeh Uddin" <${process.env.GMAIL_USER}>`,
+
+      to: cleanEmail,
 
       subject: "Thank you for contacting me",
 
       html: `
-        <div style="font-family:sans-serif;padding:20px;">
-          <h2>Hi ${fullname},</h2>
+  <div style="font-family:Arial,sans-serif;padding:20px;">
+    <h2>Hi ${cleanName},</h2>
 
-          <p>
-            Thank you for contacting me.
-            I received your message and
-            will get back to you soon.
-          </p>
+    <p>
+      Thank you for contacting me.
+      I have received your message and
+      will get back to you soon.
+    </p>
 
-          <br />
+    <br/>
 
-          <p>
-            Regards,<br/>
-            Sabeeh Uddin
-          </p>
-        </div>
-      `,
+    <p>
+      Regards,<br/>
+      Sabeeh Uddin
+    </p>
+  </div>
+  `,
     });
 
     /* ADMIN EMAIL */
-    await transporter.sendMail({
-      from: process.env.SMTP_EMAIL,
 
-      to: process.env.SMTP_EMAIL,
+    await transporter.sendMail({
+      from: `"Portfolio Contact Form" <${process.env.GMAIL_USER}>`,
+
+      to: process.env.GMAIL_USER,
 
       subject: "New Portfolio Contact Submission",
 
       html: `
-        <div style="font-family:sans-serif;padding:20px;">
-          <h2>New Contact Form Message</h2>
+  <div style="font-family:Arial,sans-serif;padding:20px;">
+    <h2>New Contact Form Submission</h2>
 
-          <p>
-            <strong>Name:</strong>
-            ${fullname}
-          </p>
+    <p>
+      <strong>Name:</strong>
+      ${cleanName}
+    </p>
 
-          <p>
-            <strong>Email:</strong>
-            ${email}
-          </p>
+    <p>
+      <strong>Email:</strong>
+      ${cleanEmail}
+    </p>
 
-          <p>
-            <strong>Message:</strong>
-          </p>
+    <p>
+      <strong>Message:</strong>
+    </p>
 
-          <p>${message}</p>
-        </div>
-      `,
+    <p>
+      ${cleanMessage}
+    </p>
+
+    <hr/>
+
+    <p>
+      Submitted:
+      ${new Date().toLocaleString()}
+    </p>
+  </div>
+  `,
     });
 
     return res.status(200).json({
@@ -96,17 +136,14 @@ export default async function handler(req, res) {
 
       message: "Message sent successfully",
 
-      data: newMessage,
+      data: savedMessage,
     });
   } catch (error) {
     console.error("CONTACT API ERROR:", error);
 
     return res.status(500).json({
       success: false,
-
-      message: "Something went wrong",
-
-      error: error.message,
+      message: "Internal server error",
     });
   }
 }

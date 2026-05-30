@@ -63,9 +63,9 @@ const Contact = () => {
         },
 
         body: JSON.stringify({
-          fullname,
-          email,
-          message,
+          fullname: formData.fullname,
+          email: formData.email,
+          message: formData.message,
         }),
       });
 
@@ -75,11 +75,12 @@ const Contact = () => {
         throw new Error(data.message);
       }
 
-      alert("Message sent successfully");
-
-      setFullname("");
-      setEmail("");
-      setMessage("");
+     setStatus(error.message);
+      setFormData({
+        fullname: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
       console.error(error);
 
@@ -362,6 +363,7 @@ const Contact = () => {
                     name="fullname"
                     value={formData.fullname}
                     onChange={handleChange}
+                    required
                     placeholder="John Doe"
                     className="
                     mt-2
@@ -408,6 +410,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    required
                     placeholder="you@example.com"
                     className="
                     mt-2
@@ -454,6 +457,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
+                    required
                     placeholder="Tell me about your project..."
                     className="
                     mt-2
@@ -526,8 +530,7 @@ const Contact = () => {
                     transition-transform
                     duration-300
 
-                    group-hover:translate-x-1
-                    group-hover:-translate-y-1
+                   
                     "
                   />
                 </button>
@@ -579,7 +582,7 @@ const Contact = () => {
               p-5
               sm:p-6
 
-              shadow-[0_20px_60px_rgba(0,0,0,0.04)]
+             shadow-sm
               "
             >
               <h3
@@ -725,7 +728,7 @@ const Contact = () => {
 
               bg-white/70
 
-              backdrop-blur-xl
+              
 
               p-5
               sm:p-6
