@@ -554,7 +554,7 @@ const Contact = () => {
           </motion.div>
 
           {/* INFO SIDE */}
-          <motion.div
+          <div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -817,7 +817,7 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

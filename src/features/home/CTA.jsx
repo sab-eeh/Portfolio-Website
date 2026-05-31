@@ -230,7 +230,7 @@ const CTA = () => {
             </motion.p>
 
             {/* FORM */}
-            <motion.div
+            <div
               initial={{
                 opacity: 0,
                 y: 20,
@@ -357,10 +357,10 @@ const CTA = () => {
                   "
                 />
               </button>
-            </motion.div>
+            </div>
 
             {/* STATS */}
-            <motion.div
+            <div
               initial={{
                 opacity: 0,
               }}
@@ -399,7 +399,7 @@ const CTA = () => {
               <span>
                 ✔ Premium Frontend Systems
               </span>
-            </motion.div>
+            </div>
           </div>
         </div>
 
