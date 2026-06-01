@@ -4,6 +4,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error("Please define MONGODB_URI in environment variables");
+  console.log("URI:", process.env.MONGODB_URI);
 }
 
 let cached = global.mongoose;
