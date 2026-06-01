@@ -55,7 +55,7 @@ const Contact = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("/api/contact", {
+      const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
 
         headers: {
@@ -69,13 +69,19 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json();
+      let data = {};
+
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error("Invalid server response");
+      }
 
       if (!response.ok) {
         throw new Error(data.message);
       }
 
-     setStatus(error.message);
+      setStatus(data.message);
       setFormData({
         fullname: "",
         email: "",
