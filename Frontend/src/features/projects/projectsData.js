@@ -1,14 +1,56 @@
 import ecommerce from "../../assets/images/ecommerce.webp";
 import precision from "../../assets/images/precision.webp";
+import foodie from "../../assets/images/foodie.webp";
 import katalyx from "../../assets/images/katalyxmedia.webp";
 import spotify from "../../assets/images/spotify ui.webp";
 import inotebook from "../../assets/images/inotebook.webp";
 import newsweb from "../../assets/images/news web.webp";
-import airline from "../../assets/images/airline.webp"
+import airline from "../../assets/images/airline.webp";
 
 export const projects = [
   {
     id: 1,
+
+    slug: "foodie-food-delivery-app",
+
+    title: "Foodie",
+
+    category: "Mobile App · Food Delivery",
+
+    tagline:
+      "Full-stack Flutter food delivery app with real-time Firestore menus, cart management, and a clean animated ordering experience.",
+
+    description: `
+    Foodie is a full-stack mobile food delivery application built with Flutter and powered by Firebase. It delivers a complete ordering experience for customers, from account creation to checkout, backed by a live, cloud-hosted menu and order system.
+
+    The app features a dynamic home feed that loads food items, categories, and promotions directly from Cloud Firestore, with real-time search and category filtering. Users can view detailed food pages with Hero animations, adjust quantities, and add items to a persistent cart. The cart is managed through a dedicated Provider-based state layer that handles quantity updates, automatic item removal, and live total price calculation.
+
+    On checkout, orders are written to Firestore with itemized details, total price, and status, and are immediately reflected in a user-specific order history screen. The profile screen pulls the signed-in user's data from Firestore and provides quick access to order history and logout. Firebase Authentication handles signup, login, and persisted sessions, with a splash screen that automatically routes returning users into the app.
+
+    The frontend was built with Flutter and Dart using Material Design components, Hero animations, and AnimatedContainer transitions for smooth, native-feeling interactions. The backend runs entirely on Firebase, using Firebase Authentication for user management and Cloud Firestore as a real-time NoSQL database for users, foods, and orders.
+
+    This project demonstrates practical experience with Flutter app architecture, Firebase integration, Provider-based state management, and building a production-style mobile ordering flow from scratch.
+  `,
+
+    tech: [
+      "Flutter",
+      "Dart",
+      "Firebase Authentication",
+      "Cloud Firestore",
+      "Provider",
+      "Material Design",
+    ],
+
+    thumbnail: foodie,
+
+    liveUrl: "",
+
+    githubUrl: "",
+
+    year: "2026",
+  },
+  {
+    id: 2,
 
     slug: "precision-toronto",
 
@@ -48,8 +90,9 @@ export const projects = [
 
     year: "2026",
   },
+
   {
-    id: 2,
+    id: 3,
 
     slug: "iphone-purchase-ecommerce",
 
@@ -91,7 +134,7 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: 4,
 
     slug: "katalyx-media",
 
@@ -123,7 +166,7 @@ export const projects = [
     year: "2026",
   },
   {
-    id: 4,
+    id: 5,
 
     slug: "spotify-ui-clone",
 
@@ -158,7 +201,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
 
     slug: "inotebook-app",
 
@@ -200,7 +243,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
 
     slug: "news-application",
 
@@ -234,7 +277,7 @@ export const projects = [
     year: "2025",
   },
   {
-    id: 7,
+    id: 8,
 
     slug: "airline-management-system",
 

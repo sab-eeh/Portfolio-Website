@@ -2,7 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
-import { FaHtml5, FaWordpress, FaNodeJs, FaFigma } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaWordpress,
+  FaNodeJs,
+  FaFigma,
+  FaShopify,
+} from "react-icons/fa";
+import { FaFlutter } from "react-icons/fa6";
 
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io";
 
@@ -59,8 +66,18 @@ const skills = [
   },
 
   {
+    icon: <FaFlutter />,
+    name: "Flutter",
+  },
+
+  {
     icon: <FaWordpress />,
     name: "WordPress",
+  },
+
+  {
+    icon: <FaShopify />,
+    name: "Shopify",
   },
 
   {
