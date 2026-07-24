@@ -56,11 +56,23 @@ const Contact = () => {
       setLoading(true);
       setStatus("");
 
-      const API_URL = import.meta.env.VITE_API_URL?.trim();
-      const baseUrl = API_URL ? API_URL.replace(/\/$/, "") : "";
-      const endpoint = baseUrl ? `${baseUrl}/api/contact` : "/api/contact";
+      // Check if running on Vercel or localhost
+      const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+      
+      if (!isProduction) {
+        // Local development: show info message
+        setStatus("✅ Form validated! API works on production (Vercel only)");
+        setFormData({
+          fullname: "",
+          email: "",
+          message: "",
+        });
+        setLoading(false);
+        return;
+      }
 
-      const response = await fetch(endpoint, {
+      // Production: call the API
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -86,7 +98,7 @@ const Contact = () => {
       });
     } catch (error) {
       console.error(error);
-      setStatus(error.message || "Something went wrong");
+      setStatus(error.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
