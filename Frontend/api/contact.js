@@ -28,18 +28,43 @@ async function getContactModel() {
     return cachedContactModel;
   }
 
-  if (process.env.MONGODB_URI) {
-    if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI, {
-        serverSelectionTimeoutMS: 10000,
-      });
-    }
-
-    cachedContactModel = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
-    return cachedContactModel;
+  if (!process.env.MONGODB_URI) {
+    return null;
   }
 
-  return null;
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000,
+    });
+  }
+
+  cachedContactModel = mongoose.models.Contact || mongoose.model("Contact", contactSchema);
+  return cachedContactModel;
+}
+
+function parseJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+
+    req.on("end", () => {
+      if (!body) {
+        resolve({});
+        return;
+      }
+
+      try {
+        resolve(JSON.parse(body));
+      } catch (error) {
+        reject(error);
+      }
+    });
+
+    req.on("error", reject);
+  });
 }
 
 async function sendEmail({ fullname, email, message }) {
@@ -51,9 +76,7 @@ async function sendEmail({ fullname, email, message }) {
   }
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    service: "gmail",
     auth: {
       user,
       pass,
@@ -93,7 +116,8 @@ export default async function handler(req, res) {
   res.set(corsHeaders);
 
   try {
-    const { fullname, email, message } = req.body || {};
+    const body = req.body || (await parseJsonBody(req));
+    const { fullname, email, message } = body;
 
     if (!fullname || !email || !message) {
       res.status(400).json({ success: false, message: "Please fill all fields" });
@@ -115,7 +139,7 @@ export default async function handler(req, res) {
       }
     } catch (error) {
       dbError = error;
-      console.error("Database save failed:", error);
+      console.error("Database save failed:", error.message || error);
     }
 
     let emailResult = null;
@@ -123,10 +147,10 @@ export default async function handler(req, res) {
       emailResult = await sendEmail({ fullname, email, message });
     } catch (error) {
       emailResult = { ok: false, reason: "send-failed" };
-      console.error("Email send failed:", error);
+      console.error("Email send failed:", error.message || error);
     }
 
-    if (dbError && !emailResult?.ok) {
+    if (!emailResult?.ok) {
       res.status(500).json({
         success: false,
         message: "Your message could not be sent right now. Please try again later.",
@@ -136,8 +160,11 @@ export default async function handler(req, res) {
 
     res.status(200).json({
       success: true,
-      message: "Message sent successfully",
+      message: dbError
+        ? "Message sent, but saving to database failed."
+        : "Message sent successfully",
       data: savedContact,
+      warning: dbError ? "database_save_failed" : undefined,
     });
   } catch (error) {
     console.error("Contact handler failed:", error);

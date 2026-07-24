@@ -56,8 +56,9 @@ const Contact = () => {
       setLoading(true);
       setStatus("");
 
-      const API_URL = import.meta.env.VITE_API_URL || "";
-      const endpoint = `${API_URL}/api/contact`.replace(/([^:]\/)\/+/g, "$1/");
+      const API_URL = import.meta.env.VITE_API_URL?.trim();
+      const baseUrl = API_URL ? API_URL.replace(/\/$/, "") : "";
+      const endpoint = baseUrl ? `${baseUrl}/api/contact` : "/api/contact";
 
       const response = await fetch(endpoint, {
         method: "POST",
