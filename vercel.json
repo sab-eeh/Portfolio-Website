@@ -2,12 +2,11 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/api/$1.js",
-      "methods": ["POST", "OPTIONS"]
+      "methods": ["POST", "OPTIONS", "GET"]
     },
     {
       "src": "/(.*)",
