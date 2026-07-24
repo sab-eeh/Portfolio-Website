@@ -1,7 +1,7 @@
 import validator from "validator";
 
 import Contact from "../models/Contact.js";
-
+import { getMongoConnectionStatus } from "../config/db.js";
 import { transporter } from "../services/emailService.js";
 
 export const submitContactForm = async (req, res) => {
@@ -19,6 +19,13 @@ export const submitContactForm = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Invalid Email",
+      });
+    }
+
+    if (getMongoConnectionStatus() !== "connected") {
+      return res.status(503).json({
+        success: false,
+        message: "The server is currently unable to save messages. Please try again later.",
       });
     }
 

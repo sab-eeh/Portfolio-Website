@@ -54,9 +54,12 @@ const Contact = () => {
 
     try {
       setLoading(true);
-      const API_URL = import.meta.env.VITE_API_URL;
+      setStatus("");
 
-      await fetch(`${API_URL}/api/contact`, {
+      const API_URL = import.meta.env.VITE_API_URL || "";
+      const endpoint = `${API_URL}/api/contact`.replace(/([^:]\/)\/+/g, "$1/");
+
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,19 +71,13 @@ const Contact = () => {
         }),
       });
 
-      let data = {};
-
-      try {
-        data = await response.json();
-      } catch {
-        throw new Error("Invalid server response");
-      }
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(data.message);
+        throw new Error(data.message || `HTTP Error: ${response.status}`);
       }
 
-      setStatus(data.message);
+      setStatus(data.message || "Message sent successfully!");
       setFormData({
         fullname: "",
         email: "",
@@ -88,8 +85,7 @@ const Contact = () => {
       });
     } catch (error) {
       console.error(error);
-
-      alert(error.message || "Something went wrong");
+      setStatus(error.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
