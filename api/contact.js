@@ -101,19 +101,25 @@ async function sendEmail({ fullname, email, message }) {
 }
 
 export default async function handler(req, res) {
+  const applyCorsHeaders = (response) => {
+    Object.entries(corsHeaders).forEach(([key, value]) => {
+      response.setHeader(key, value);
+    });
+  };
+
   if (req.method === "OPTIONS") {
-    res.set(corsHeaders);
+    applyCorsHeaders(res);
     res.status(200).end();
     return;
   }
 
   if (req.method !== "POST") {
-    res.set(corsHeaders);
+    applyCorsHeaders(res);
     res.status(405).json({ success: false, message: "Method not allowed" });
     return;
   }
 
-  res.set(corsHeaders);
+  applyCorsHeaders(res);
 
   try {
     const body = req.body || (await parseJsonBody(req));
