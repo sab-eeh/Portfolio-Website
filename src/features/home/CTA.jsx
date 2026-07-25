@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 
-import {
-  ArrowRight,
-  Sparkles,
-  Zap,
-  Rocket,
-  Code2,
-} from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Rocket, Code2 } from "lucide-react";
 
 const CTA = () => {
   const scrollToContact = () => {
@@ -18,8 +12,16 @@ const CTA = () => {
 
   const features = [
     { icon: Code2, label: "Clean Code", desc: "Production-ready architecture" },
-    { icon: Zap, label: "Fast Performance", desc: "Optimized & scalable solutions" },
-    { icon: Rocket, label: "Quick Turnaround", desc: "Efficient project delivery" },
+    {
+      icon: Zap,
+      label: "Fast Performance",
+      desc: "Optimized & scalable solutions",
+    },
+    {
+      icon: Rocket,
+      label: "Quick Turnaround",
+      desc: "Efficient project delivery",
+    },
   ];
 
   return (
@@ -261,19 +263,14 @@ const CTA = () => {
                   duration-300
                   "
                 >
-                  <feature.icon
-                    size={22}
-                    className="text-orange-500"
-                  />
+                  <feature.icon size={22} className="text-orange-500" />
                 </div>
 
                 <h3 className="text-[16px] font-semibold text-[#111111] mb-2">
                   {feature.label}
                 </h3>
 
-                <p className="text-[13px] text-black/55">
-                  {feature.desc}
-                </p>
+                <p className="text-[13px] text-black/55">{feature.desc}</p>
               </div>
             </div>
           ))}
@@ -428,43 +425,7 @@ const CTA = () => {
           </div>
         </motion.div>
 
-        {/* BOTTOM STATS */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="
-          mt-12
 
-          flex
-          flex-wrap
-          justify-center
-
-          gap-x-8
-          gap-y-3
-
-          text-[13px]
-          sm:text-[14px]
-
-          text-black/55
-          "
-        >
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-            100+ Projects Completed
-          </span>
-
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-            4.9/5 Client Rating
-          </span>
-
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-            24/7 Support Available
-          </span>
-        </motion.div>
       </div>
     </section>
   );
