@@ -9,6 +9,9 @@ import {
   Github,
   ArrowUpRight,
   Sparkles,
+  CheckCircle,
+  AlertCircle,
+  Loader,
 } from "lucide-react";
 
 const fadeUp = {
@@ -38,7 +41,7 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,16 +55,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Client-side validation
+    if (!formData.fullname.trim()) {
+      setStatus({ type: "error", message: "Please enter your full name" });
+      return;
+    }
+    if (!formData.email.trim()) {
+      setStatus({ type: "error", message: "Please enter your email" });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setStatus({ type: "error", message: "Please enter a valid email" });
+      return;
+    }
+    if (!formData.message.trim()) {
+      setStatus({ type: "error", message: "Please enter your message" });
+      return;
+    }
+
     try {
       setLoading(true);
       setStatus("");
 
       // Check if running on Vercel or localhost
-      const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-      
+      const isProduction =
+        window.location.hostname !== "localhost" &&
+        window.location.hostname !== "127.0.0.1";
+
       if (!isProduction) {
         // Local development: show info message
-        setStatus("✅ Form validated! API works on production (Vercel only)");
+        setStatus({
+          type: "success",
+          message: "✅ Form validated! API works on production (Vercel only)",
+        });
         setFormData({
           fullname: "",
           email: "",
@@ -78,9 +104,9 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullname: formData.fullname,
-          email: formData.email,
-          message: formData.message,
+          fullname: formData.fullname.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
         }),
       });
 
@@ -90,7 +116,10 @@ const Contact = () => {
         throw new Error(data.message || `HTTP Error: ${response.status}`);
       }
 
-      setStatus(data.message || "Message sent successfully!");
+      setStatus({
+        type: "success",
+        message: data.message || "✅ Message sent successfully! I'll reply within 24 hours.",
+      });
       setFormData({
         fullname: "",
         email: "",
@@ -98,7 +127,10 @@ const Contact = () => {
       });
     } catch (error) {
       console.error(error);
-      setStatus(error.message || "Something went wrong. Please try again.");
+      setStatus({
+        type: "error",
+        message: error.message || "❌ Failed to send message. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
@@ -365,8 +397,9 @@ const Contact = () => {
                   <label
                     className="
                     text-[13px]
+                    font-medium
 
-                    text-black/50
+                    text-black/70
                     "
                   >
                     Full Name
@@ -384,15 +417,15 @@ const Contact = () => {
 
                     w-full
 
-                    rounded-[18px]
+                    rounded-[16px]
 
                     border
-                    border-transparent
+                    border-black/[0.08]
 
-                    bg-[#f8f8f8]
+                    bg-white
 
                     px-4
-                    py-3.5
+                    py-3
 
                     text-[14px]
 
@@ -401,8 +434,12 @@ const Contact = () => {
                     transition-all
                     duration-300
 
-                    focus:border-orange-300
+                    focus:border-orange-500
+                    focus:ring-2
+                    focus:ring-orange-500/20
                     focus:bg-white
+
+                    placeholder:text-black/30
                     "
                   />
                 </div>
@@ -412,8 +449,9 @@ const Contact = () => {
                   <label
                     className="
                     text-[13px]
+                    font-medium
 
-                    text-black/50
+                    text-black/70
                     "
                   >
                     Email Address
@@ -431,15 +469,15 @@ const Contact = () => {
 
                     w-full
 
-                    rounded-[18px]
+                    rounded-[16px]
 
                     border
-                    border-transparent
+                    border-black/[0.08]
 
-                    bg-[#f8f8f8]
+                    bg-white
 
                     px-4
-                    py-3.5
+                    py-3
 
                     text-[14px]
 
@@ -448,8 +486,12 @@ const Contact = () => {
                     transition-all
                     duration-300
 
-                    focus:border-orange-300
+                    focus:border-orange-500
+                    focus:ring-2
+                    focus:ring-orange-500/20
                     focus:bg-white
+
+                    placeholder:text-black/30
                     "
                   />
                 </div>
@@ -459,8 +501,9 @@ const Contact = () => {
                   <label
                     className="
                     text-[13px]
+                    font-medium
 
-                    text-black/50
+                    text-black/70
                     "
                   >
                     Message
@@ -480,15 +523,15 @@ const Contact = () => {
 
                     resize-none
 
-                    rounded-[18px]
+                    rounded-[16px]
 
                     border
-                    border-transparent
+                    border-black/[0.08]
 
-                    bg-[#f8f8f8]
+                    bg-white
 
                     px-4
-                    py-3.5
+                    py-3
 
                     text-[14px]
 
@@ -497,8 +540,12 @@ const Contact = () => {
                     transition-all
                     duration-300
 
-                    focus:border-orange-300
+                    focus:border-orange-500
+                    focus:ring-2
+                    focus:ring-orange-500/20
                     focus:bg-white
+
+                    placeholder:text-black/30
                     "
                   />
                 </div>
@@ -519,7 +566,9 @@ const Contact = () => {
 
                   rounded-[18px]
 
-                  bg-[#111111]
+                  bg-gradient-to-r
+                  from-[#111111]
+                  to-[#333333]
 
                   px-5
                   py-3.5
@@ -533,35 +582,59 @@ const Contact = () => {
                   transition-all
                   duration-300
 
-                  hover:bg-orange-500
+                  hover:from-orange-500
+                  hover:to-orange-600
+                  hover:shadow-lg
+                  hover:shadow-orange-500/20
+
+                  disabled:opacity-70
+                  disabled:cursor-not-allowed
                   "
                 >
-                  {loading ? "Sending..." : "Send Message"}
-
-                  <ArrowUpRight
-                    size={16}
-                    className="
-                    transition-transform
-                    duration-300
-
-                   
-                    "
-                  />
+                  {loading ? (
+                    <>
+                      <Loader size={16} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <ArrowUpRight size={16} />
+                    </>
+                  )}
                 </button>
 
                 {/* STATUS */}
                 {status && (
-                  <p
-                    className="
-                    text-center
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`
+                    flex
+                    items-start
+                    gap-3
+
+                    p-4
+
+                    rounded-[16px]
 
                     text-[13px]
+                    leading-relaxed
 
-                    text-orange-500
-                    "
+                    ${
+                      status.type === "success"
+                        ? "bg-green-500/10 border border-green-500/20 text-green-700"
+                        : "bg-red-500/10 border border-red-500/20 text-red-700"
+                    }
+                    `}
                   >
-                    {status}
-                  </p>
+                    {status.type === "success" ? (
+                      <CheckCircle size={16} className="flex-shrink-0 mt-0.5" />
+                    ) : (
+                      <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
+                    )}
+                    <span>{status.message}</span>
+                  </motion.div>
                 )}
               </form>
             </div>

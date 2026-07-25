@@ -1,37 +1,43 @@
 import { motion } from "framer-motion";
 
 import {
-  Mail,
-  ArrowUpRight,
+  ArrowRight,
   Sparkles,
+  Zap,
+  Rocket,
+  Code2,
 } from "lucide-react";
 
-const marqueeItems = [
-  "UI/UX Design",
-  "Web Development",
-  "Landing Pages",
-  "Automate Systems",
-  "Frontend Systems",
-  "Dashboards",
-  "Mobile UI",
-];
-
 const CTA = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const features = [
+    { icon: Code2, label: "Clean Code", desc: "Production-ready architecture" },
+    { icon: Zap, label: "Fast Performance", desc: "Optimized & scalable solutions" },
+    { icon: Rocket, label: "Quick Turnaround", desc: "Efficient project delivery" },
+  ];
+
   return (
     <section
-      
       className="
       relative
 
       overflow-hidden
 
-      bg-[#f5f5f5]
+      bg-gradient-to-br
+      from-[#f5f5f5]
+      to-[#ffffff]
 
       py-16
-      md:py-20
+      md:py-24
       "
     >
-      {/* BACKGROUND GLOW */}
+      {/* BACKGROUND ELEMENTS */}
       <div
         className="
         absolute
@@ -39,12 +45,31 @@ const CTA = () => {
         left-1/2
         -translate-x-1/2
 
-        w-[420px]
-        h-[420px]
+        w-[600px]
+        h-[600px]
 
         rounded-full
 
-        bg-orange-500/[0.06]
+        bg-orange-500/[0.08]
+
+        blur-[150px]
+
+        pointer-events-none
+        "
+      />
+
+      <div
+        className="
+        absolute
+        bottom-0
+        right-0
+
+        w-[400px]
+        h-[400px]
+
+        rounded-full
+
+        bg-blue-500/[0.05]
 
         blur-[120px]
 
@@ -65,431 +90,381 @@ const CTA = () => {
         lg:px-8
         "
       >
-        {/* MAIN CARD */}
-        <div
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="
+          max-w-3xl
+
+          mx-auto
+
+          text-center
+
+          mb-12
+          "
+        >
+          <div
+            className="
+            inline-flex
+            items-center
+            gap-2
+
+            rounded-full
+
+            border
+            border-orange-500/30
+
+            bg-orange-500/10
+
+            px-4
+            py-2
+
+            mb-6
+            "
+          >
+            <Sparkles size={14} className="text-orange-500" />
+            <span className="text-[12px] font-medium text-orange-600">
+              Ready to Elevate Your Vision
+            </span>
+          </div>
+
+          <h2
+            className="
+            text-[36px]
+            sm:text-[44px]
+            md:text-[52px]
+            lg:text-[60px]
+
+            font-bold
+
+            leading-[1.1]
+            tracking-[-0.02em]
+
+            text-[#111111]
+
+            mb-6
+            "
+          >
+            Let's Turn Your <span className="text-orange-500">Ideas</span> Into
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
+              Digital Reality
+            </span>
+          </h2>
+
+          <p
+            className="
+            text-[16px]
+            sm:text-[17px]
+
+            leading-relaxed
+
+            text-black/60
+
+            max-w-2xl
+
+            mx-auto
+            "
+          >
+            Whether you need a stunning portfolio, a powerful web application,
+            or a complete digital transformation, I'm here to bring your vision
+            to life with cutting-edge technology and expert craftsmanship.
+          </p>
+        </motion.div>
+
+        {/* FEATURES GRID */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="
+          grid
+          md:grid-cols-3
+
+          gap-4
+
+          mb-12
+          "
+        >
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="
+              relative
+
+              overflow-hidden
+
+              rounded-[20px]
+
+              border
+              border-black/[0.08]
+
+              bg-white/50
+
+              backdrop-blur-xl
+
+              p-6
+
+              hover:border-orange-500/30
+              hover:bg-white
+
+              transition-all
+              duration-300
+
+              group
+              "
+            >
+              {/* BACKGROUND GLOW */}
+              <div
+                className="
+                absolute
+                inset-0
+
+                bg-gradient-to-br
+                from-orange-500/5
+                to-transparent
+
+                opacity-0
+
+                group-hover:opacity-100
+
+                transition-opacity
+                duration-300
+
+                pointer-events-none
+                "
+              />
+
+              <div className="relative z-10">
+                <div
+                  className="
+                  inline-flex
+                  items-center
+                  justify-center
+
+                  w-12
+                  h-12
+
+                  rounded-[14px]
+
+                  bg-orange-500/10
+
+                  mb-4
+
+                  group-hover:bg-orange-500/20
+
+                  transition-colors
+                  duration-300
+                  "
+                >
+                  <feature.icon
+                    size={22}
+                    className="text-orange-500"
+                  />
+                </div>
+
+                <h3 className="text-[16px] font-semibold text-[#111111] mb-2">
+                  {feature.label}
+                </h3>
+
+                <p className="text-[13px] text-black/55">
+                  {feature.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="
           relative
 
           overflow-hidden
 
-          rounded-[28px]
-          lg:rounded-[32px]
+          rounded-[32px]
 
           border
-          border-black/[0.05]
+          border-black/[0.06]
 
-          bg-white/70
+          bg-gradient-to-br
+          from-white/80
+          to-white/40
 
-          backdrop-blur-xl
+          backdrop-blur-2xl
 
-          px-5
-          sm:px-6
-          lg:px-8
+          px-6
+          sm:px-8
+          lg:px-12
 
-          py-8
-          lg:py-10
+          py-12
+          sm:py-16
+          lg:py-20
 
-          shadow-[0_20px_60px_rgba(0,0,0,0.05)]
+          shadow-[0_20px_60px_rgba(0,0,0,0.08)]
           "
         >
-          {/* GRID */}
+          {/* DECORATIVE ELEMENTS */}
           <div
             className="
             absolute
-            inset-0
+            top-0
+            right-0
 
-            opacity-[0.025]
+            w-[300px]
+            h-[300px]
 
-            [background-image:linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)]
-            [background-size:56px_56px]
+            rounded-full
+
+            bg-gradient-to-br
+            from-orange-500/10
+            to-transparent
+
+            blur-[100px]
 
             pointer-events-none
             "
           />
 
-          {/* CONTENT */}
           <div
             className="
             relative
             z-10
 
-            max-w-3xl
+            max-w-2xl
 
             mx-auto
 
             text-center
             "
           >
-            {/* BADGE */}
-            <div
+            <h3
               className="
-              inline-flex
-              items-center
-              gap-2
+              text-[28px]
+              sm:text-[34px]
+              md:text-[40px]
 
-              rounded-full
+              font-bold
 
-              border
-              border-black/10
+              tracking-[-0.02em]
 
-              bg-white/70
-
-              px-3.5
-              py-1.5
+              text-[#111111]
 
               mb-4
               "
             >
-              <Sparkles
-                size={13}
-                className="text-orange-500"
-              />
+              Ready to Get Started?
+            </h3>
 
-              <span
-                className="
-                text-[12px]
-                font-medium
-                tracking-[-0.01em]
-
-                text-black/60
-                "
-              >
-                Let’s Work Together
-              </span>
-            </div>
-
-            {/* TITLE */}
-            <motion.h2
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-              }}
+            <p
               className="
-              text-[34px]
-              sm:text-[40px]
-              md:text-[46px]
-              lg:text-[50px]
-
-              font-semibold
-
-              leading-[0.95]
-              tracking-[-0.05em]
-
-              text-[#111111]
-              "
-            >
-              Have An Awesome
-              <br />
-              Project Idea?
-              <span className="text-orange-500">
-                {" "}
-                Let’s Discuss
-              </span>
-            </motion.h2>
-
-            {/* DESCRIPTION */}
-            <motion.p
-              initial={{
-                opacity: 0,
-              }}
-              whileInView={{
-                opacity: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.1,
-                duration: 0.5,
-              }}
-              className="
-              mt-5
-
-              max-w-2xl
-
-              mx-auto
-
               text-[15px]
               sm:text-[16px]
 
-              leading-relaxed
-
               text-black/60
+
+              mb-8
               "
             >
-              Let’s create premium digital
-              experiences with modern UI systems,
-              scalable development, and clean
-              frontend architecture.
-            </motion.p>
+              Fill out the contact form below, and I'll get back to you within
+              24 hours with tailored solutions for your project.
+            </p>
 
-            {/* FORM */}
-            <div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.2,
-                duration: 0.5,
-              }}
+            <motion.button
+              onClick={scrollToContact}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="
-              mt-8
+              group
 
-              flex
-              flex-col
-              sm:flex-row
-
+              inline-flex
               items-center
-
+              justify-center
               gap-3
 
-              rounded-[24px]
+              rounded-[20px]
 
-              border
-              border-black/[0.05]
+              bg-gradient-to-r
+              from-orange-500
+              to-orange-600
 
-              bg-white
+              px-8
+              py-4
 
-              p-2
+              text-[15px]
+              font-bold
+              tracking-[-0.01em]
 
-              shadow-[0_10px_30px_rgba(0,0,0,0.04)]
+              text-white
 
-              max-w-2xl
+              transition-all
+              duration-300
 
-              mx-auto
+              hover:shadow-lg
+              hover:shadow-orange-500/30
+              hover:from-orange-600
+              hover:to-orange-700
               "
             >
-              {/* INPUT WRAPPER */}
-              <div
+              <span>Contact Me Now</span>
+              <ArrowRight
+                size={18}
                 className="
-                flex
-                items-center
-                gap-3
-
-                flex-1
-
-                w-full
-
-                px-4
-                py-3
-                "
-              >
-                <Mail
-                  size={17}
-                  className="text-orange-500"
-                />
-
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-
-                  className="
-                  w-full
-
-                  bg-transparent
-
-                  outline-none
-
-                  text-[14px]
-                  sm:text-[15px]
-
-                  text-[#111111]
-
-                  placeholder:text-black/40
-                  "
-                />
-              </div>
-
-              {/* BUTTON */}
-              <button
-                className="
-                group
-
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-
-                w-full
-                sm:w-auto
-
-                rounded-[18px]
-
-                bg-orange-500
-
-                px-5
-                py-3
-
-                text-[14px]
-                font-medium
-                tracking-[-0.01em]
-
-                text-white
-
-                transition-all
+                transition-transform
                 duration-300
 
-                hover:bg-orange-600
+                group-hover:translate-x-1
                 "
-              >
-                Send
-
-                <ArrowUpRight
-                  size={16}
-                  className="
-                  transition-transform
-                  duration-300
-
-                  group-hover:translate-x-1
-                  group-hover:-translate-y-1
-                  "
-                />
-              </button>
-            </div>
-
-            {/* STATS */}
-            <div
-              initial={{
-                opacity: 0,
-              }}
-              whileInView={{
-                opacity: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.3,
-                duration: 0.5,
-              }}
-              className="
-              mt-6
-
-              flex
-              flex-wrap
-              justify-center
-
-              gap-x-6
-              gap-y-2
-
-              text-[13px]
-              sm:text-[14px]
-
-              text-black/55
-              "
-            >
-              <span>
-                ✔ 4.9/5 Average Ratings
-              </span>
-
-              <span>
-                ✔ Top 8 in Hackathon
-              </span>
-
-              <span>
-                ✔ Premium Frontend Systems
-              </span>
-            </div>
+              />
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* MARQUEE */}
-        <div
+        {/* BOTTOM STATS */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="
-          relative
+          mt-12
 
-          overflow-hidden
+          flex
+          flex-wrap
+          justify-center
 
-          mt-10
+          gap-x-8
+          gap-y-3
 
-          rounded-[24px]
+          text-[13px]
+          sm:text-[14px]
 
-          border
-          border-black/[0.05]
-
-          bg-white/70
-
-          backdrop-blur-xl
+          text-black/55
           "
         >
-          {/* TOP LINE */}
-          <div className="h-[2px] w-full bg-orange-500" />
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            100+ Projects Completed
+          </span>
 
-          {/* STRIP */}
-          <div
-            className="
-            relative
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            4.9/5 Client Rating
+          </span>
 
-            overflow-hidden
-
-            py-4
-            "
-          >
-            <motion.div
-              animate={{
-                x: ["0%", "-50%"],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 18,
-                ease: "linear",
-              }}
-              className="
-              flex
-
-              whitespace-nowrap
-              "
-            >
-              {[...Array(2)].map((_, i) => (
-                <div
-                  key={i}
-                  className="
-                  flex
-                  items-center
-
-                  gap-8
-
-                  px-4
-                  "
-                >
-                  {marqueeItems.map(
-                    (item, index) => (
-                      <span
-                        key={index}
-                        className="
-                        text-[15px]
-                        sm:text-[16px]
-
-                        font-medium
-
-                        tracking-[-0.01em]
-
-                        text-[#222222]
-                        "
-                      >
-                        {item}
-
-                        <span className="text-orange-500 ml-3">
-                          ✦
-                        </span>
-                      </span>
-                    )
-                  )}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            24/7 Support Available
+          </span>
+        </motion.div>
       </div>
     </section>
   );
