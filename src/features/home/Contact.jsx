@@ -75,7 +75,7 @@ const Contact = () => {
 
     try {
       setLoading(true);
-      setStatus("");
+      setStatus(null);
 
       // Check if running on Vercel or localhost
       const isProduction =
@@ -118,7 +118,11 @@ const Contact = () => {
 
       setStatus({
         type: "success",
-        message: data.message || "✅ Message sent successfully! I'll reply within 24 hours.",
+        message:
+          data.message ===
+          "Message received, but one or more delivery paths are unavailable."
+            ? "✅ Message received. Email or database path needs configuration."
+            : data.message || "✅ Message sent successfully! I'll reply within 24 hours.",
       });
       setFormData({
         fullname: "",
