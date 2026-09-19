@@ -1,4 +1,4 @@
-import ecommerce from "../../assets/images/ecommerce.webp";
+
 import precision from "../../assets/images/precision.webp";
 import foodie from "../../assets/images/foodie.webp";
 import katalyx from "../../assets/images/katalyxmedia.webp";
@@ -7,6 +7,8 @@ import inotebook from "../../assets/images/inotebook.webp";
 import newsweb from "../../assets/images/news web.webp";
 import airline from "../../assets/images/airline.webp";
 import hvac from "../../assets/images/hvac.webp";
+import shoeStore from "../../assets/images/shoestore.webp";
+import Iphone from "../../assets/images/IphoneStore.webp"; 
 
 export const projects = [
   {
@@ -166,12 +168,53 @@ export const projects = [
 
     liveUrl: "https://katalyx-media-landing-page.vercel.app/",
 
-    githubUrl: "https://github.com/sab-eeh/katalyx-Media-Landing-Page",
+    githubUrl: "",
 
     year: "2026",
   },
   
+{
+  id: 3,
 
+  slug: "shoestore-mern-ecommerce",
+
+  title: "ShoeStore",
+
+  category: "Web Development · E-Commerce",
+
+  tagline:
+    "Full-stack MERN e-commerce platform with product browsing, cart management, checkout, and order management.",
+
+  description: `
+    ShoeStore is a full-stack e-commerce web application built with the MERN stack, designed to provide a clean and responsive online shopping experience for footwear.
+
+    The platform allows users to browse product collections, search for shoes, view detailed product information, select sizes and colors, add products to their cart, and complete the checkout process.
+
+    The application includes dedicated product, cart, checkout, and order workflows, creating a complete shopping journey from product discovery to order placement. The interface was designed with a clean and modern visual system focused on usability, responsive layouts, and straightforward navigation.
+
+    Built with MongoDB, Express.js, React, and Node.js, the project demonstrates practical full-stack development, RESTful application architecture, product and order data management, cart functionality, and responsive frontend development.
+
+    This project showcases the implementation of a complete e-commerce workflow using the MERN stack, combining modern UI design with functional backend logic and persistent data management.
+  `,
+
+  tech: [
+    "MongoDB",
+    "Express.js",
+    "React",
+    "Node.js",
+    "JavaScript",
+    "REST API",
+    "Responsive Design",
+  ],
+
+  thumbnail: shoeStore,
+
+  liveUrl: "",
+
+  githubUrl: "",
+
+  year: "2026",
+},
   {
     id: 5,
 
@@ -205,7 +248,7 @@ export const projects = [
       "MySQL",
     ],
 
-    thumbnail: ecommerce,
+    thumbnail: Iphone,
 
     liveUrl: "#",
 
