@@ -6,6 +6,7 @@ import spotify from "../../assets/images/spotify ui.webp";
 import inotebook from "../../assets/images/inotebook.webp";
 import newsweb from "../../assets/images/news web.webp";
 import airline from "../../assets/images/airline.webp";
+import hvac from "../../assets/images/hvac.webp";
 
 export const projects = [
   {
@@ -52,6 +53,53 @@ export const projects = [
   {
     id: 2,
 
+    slug: "advance-thermo-care-hvac-website",
+
+    title: "Advance Thermo Care",
+
+    category: "Web Development · HVAC",
+
+    tagline:
+      "Premium HVAC, refrigeration, and high-end appliance service website with a responsive service catalog and integrated service-request system.",
+
+    description: `
+    Advance Thermo Care is a production-ready business website developed for a professional HVAC, refrigeration, and high-end appliance service company serving Pingree Grove, Illinois.
+
+    The website was designed around a premium, modern visual identity that combines clean editorial layouts, strong typography, refined motion, and high-quality imagery to create a professional digital presence for the brand. The experience is fully responsive across desktop, tablet, and mobile devices.
+
+    The platform includes a complete 20-route service catalog covering HVAC, refrigeration, and high-end appliance services, with reusable category and service-detail templates powered by centralized data. The navigation system provides structured access to services, individual service pages, company information, and contact functionality.
+
+    A complete service-request workflow was also integrated into the website. Customer requests are validated, securely stored in Supabase, and followed by automated business notification and customer confirmation emails. The system uses server-side processing to keep sensitive credentials and email configuration protected.
+
+    The project combines React, Vite, Tailwind CSS, TanStack Router, TanStack Start, Framer Motion, Supabase, and Nodemailer to create a maintainable, scalable, and production-focused web experience. The final website is deployed on Vercel with the custom Advance Thermo Care domain.
+
+    This project demonstrates experience in building a complete business website from visual design and responsive frontend development through backend-connected forms, database integration, transactional email, SEO, accessibility, and production deployment.
+  `,
+
+    tech: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "Tailwind CSS",
+      "TanStack Router",
+      "TanStack Start",
+      "Framer Motion",
+      "Supabase",
+      "Nodemailer",
+      "Vercel",
+    ],
+
+    thumbnail: hvac,
+
+    liveUrl: "https://www.advancethermocare.com/",
+
+    githubUrl: "https://github.com/sab-eeh/HVAC-website",
+
+    year: "2026",
+  },
+  {
+    id: 3,
+
     slug: "precision-toronto",
 
     title: "Precision Toronto",
@@ -90,9 +138,42 @@ export const projects = [
 
     year: "2026",
   },
+  {
+    id: 4,
+
+    slug: "katalyx-media",
+
+    title: "Katalyx Media",
+
+    category: "Agency Landing Page",
+
+    tagline:
+      "Modern conversion-focused media agency landing page with premium animations, responsive layouts, and strong visual storytelling.",
+
+    description: `
+    Katalyx Media is a modern agency landing page designed to establish a strong digital presence through clean aesthetics, smooth interactions, and conversion-focused user experience. The project was developed with a focus on modern frontend architecture, responsive design systems, and visually engaging layouts tailored for creative and marketing agencies.
+
+    The landing page features structured content sections, animated transitions, interactive UI components, and performance-optimized rendering to create a seamless browsing experience across all devices. Strong typography hierarchy, strategic spacing, and modern motion design were implemented to improve readability, engagement, and brand presentation.
+
+    Built using Next.js, Tailwind CSS, and Framer Motion, the project emphasizes fast page performance, scalable component architecture, and polished frontend development practices. The design approach balances minimalism with dynamic visual elements to create a premium and professional user experience.
+
+    This project showcases expertise in responsive frontend development, UI/UX design systems, animation integration, and modern landing page architecture optimized for branding and user conversion.
+  `,
+
+    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
+
+    thumbnail: katalyx,
+
+    liveUrl: "https://katalyx-media-landing-page.vercel.app/",
+
+    githubUrl: "https://github.com/sab-eeh/katalyx-Media-Landing-Page",
+
+    year: "2026",
+  },
+  
 
   {
-    id: 3,
+    id: 5,
 
     slug: "iphone-purchase-ecommerce",
 
@@ -134,39 +215,7 @@ export const projects = [
   },
 
   {
-    id: 4,
-
-    slug: "katalyx-media",
-
-    title: "Katalyx Media",
-
-    category: "Agency Landing Page",
-
-    tagline:
-      "Modern conversion-focused media agency landing page with premium animations, responsive layouts, and strong visual storytelling.",
-
-    description: `
-    Katalyx Media is a modern agency landing page designed to establish a strong digital presence through clean aesthetics, smooth interactions, and conversion-focused user experience. The project was developed with a focus on modern frontend architecture, responsive design systems, and visually engaging layouts tailored for creative and marketing agencies.
-
-    The landing page features structured content sections, animated transitions, interactive UI components, and performance-optimized rendering to create a seamless browsing experience across all devices. Strong typography hierarchy, strategic spacing, and modern motion design were implemented to improve readability, engagement, and brand presentation.
-
-    Built using Next.js, Tailwind CSS, and Framer Motion, the project emphasizes fast page performance, scalable component architecture, and polished frontend development practices. The design approach balances minimalism with dynamic visual elements to create a premium and professional user experience.
-
-    This project showcases expertise in responsive frontend development, UI/UX design systems, animation integration, and modern landing page architecture optimized for branding and user conversion.
-  `,
-
-    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
-
-    thumbnail: katalyx,
-
-    liveUrl: "https://katalyx-media-landing-page.vercel.app/",
-
-    githubUrl: "https://github.com/sab-eeh/katalyx-Media-Landing-Page",
-
-    year: "2026",
-  },
-  {
-    id: 5,
+    id: 6,
 
     slug: "spotify-ui-clone",
 
@@ -201,7 +250,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
 
     slug: "inotebook-app",
 
@@ -243,7 +292,7 @@ export const projects = [
   },
 
   {
-    id: 7,
+    id: 8,
 
     slug: "news-application",
 
@@ -277,7 +326,7 @@ export const projects = [
     year: "2025",
   },
   {
-    id: 8,
+    id: 9,
 
     slug: "airline-management-system",
 
