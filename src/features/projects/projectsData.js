@@ -6,7 +6,7 @@ import inotebook from "../../assets/images/inotebook.webp";
 import newsweb from "../../assets/images/news web.webp";
 import airline from "../../assets/images/airline.webp";
 import hvac from "../../assets/images/hvac.webp";
-import shoeStore from "../../assets/images/shoestore.webp";
+import shoeStore from "../../assets/images/ShoeStore.webp";
 import Iphone from "../../assets/images/IphoneStore.webp";
 
 export const projects = [
