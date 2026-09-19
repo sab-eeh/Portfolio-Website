@@ -1,4 +1,3 @@
-
 import precision from "../../assets/images/precision.webp";
 import foodie from "../../assets/images/foodie.webp";
 import katalyx from "../../assets/images/katalyxmedia.webp";
@@ -8,7 +7,7 @@ import newsweb from "../../assets/images/news web.webp";
 import airline from "../../assets/images/airline.webp";
 import hvac from "../../assets/images/hvac.webp";
 import shoeStore from "../../assets/images/shoestore.webp";
-import Iphone from "../../assets/images/IphoneStore.webp"; 
+import Iphone from "../../assets/images/IphoneStore.webp";
 
 export const projects = [
   {
@@ -172,20 +171,20 @@ export const projects = [
 
     year: "2026",
   },
-  
-{
-  id: 3,
 
-  slug: "shoestore-mern-ecommerce",
+  {
+    id: 5,
 
-  title: "ShoeStore",
+    slug: "shoestore-mern-ecommerce",
 
-  category: "Web Development · E-Commerce",
+    title: "ShoeStore",
 
-  tagline:
-    "Full-stack MERN e-commerce platform with product browsing, cart management, checkout, and order management.",
+    category: "Web Development · E-Commerce",
 
-  description: `
+    tagline:
+      "Full-stack MERN e-commerce platform with product browsing, cart management, checkout, and order management.",
+
+    description: `
     ShoeStore is a full-stack e-commerce web application built with the MERN stack, designed to provide a clean and responsive online shopping experience for footwear.
 
     The platform allows users to browse product collections, search for shoes, view detailed product information, select sizes and colors, add products to their cart, and complete the checkout process.
@@ -197,26 +196,26 @@ export const projects = [
     This project showcases the implementation of a complete e-commerce workflow using the MERN stack, combining modern UI design with functional backend logic and persistent data management.
   `,
 
-  tech: [
-    "MongoDB",
-    "Express.js",
-    "React",
-    "Node.js",
-    "JavaScript",
-    "REST API",
-    "Responsive Design",
-  ],
+    tech: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "JavaScript",
+      "REST API",
+      "Responsive Design",
+    ],
 
-  thumbnail: shoeStore,
+    thumbnail: shoeStore,
 
-  liveUrl: "",
+    liveUrl: "",
 
-  githubUrl: "",
+    githubUrl: "",
 
-  year: "2026",
-},
+    year: "2026",
+  },
   {
-    id: 5,
+    id: 6,
 
     slug: "iphone-purchase-ecommerce",
 
@@ -258,7 +257,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
 
     slug: "spotify-ui-clone",
 
@@ -293,7 +292,7 @@ export const projects = [
   },
 
   {
-    id: 7,
+    id: 8,
 
     slug: "inotebook-app",
 
@@ -335,7 +334,7 @@ export const projects = [
   },
 
   {
-    id: 8,
+    id: 9,
 
     slug: "news-application",
 
@@ -369,7 +368,7 @@ export const projects = [
     year: "2025",
   },
   {
-    id: 9,
+    id: 10,
 
     slug: "airline-management-system",
 
